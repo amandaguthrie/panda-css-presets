@@ -1,0 +1,47 @@
+{
+  "name": "package-template",
+  "private": "true",
+  "version": "0.0.0",
+  "description": "A template for packages",
+  "author": {
+    "name": "Amanda Guthrie",
+    "url": "https://github.com/amandaguthrie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amandaguthrie/monorepo-template-ts-pnpm.git",
+    "directory": "packages/_template"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "svelte": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "source": "./src/index.ts",
+      "svelte": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "side-effects": false,
+  "scripts": {
+    "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
+    "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
+    "dev": "pnpm build-fast --watch",
+    "test": "node --import tsx tests/test.mts"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

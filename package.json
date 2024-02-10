@@ -1,0 +1,45 @@
+{
+  "name": "monorepo-template-ts-pnpm",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": {
+    "name": "Amanda Guthrie",
+    "url": "https://github.com/amandaguthrie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amandaguthrie/monorepo-template-ts-pnpm.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build-fast": "pnpm -r --parallel --filter=./packages/** build-fast",
+    "build": "pnpm -r --filter=./packages/** build",
+    "reset": "pnpm -r --parallel exec rimraf node_modules dist && rimraf node_modules dist",
+    "lint": "eslint packages --ext .ts",
+    "prettier": "prettier --check packages",
+    "prettier-fix": "prettier --write packages",
+    "test": "pnpm -r --parallel --filter=./packages/** test --if-present",
+    "typecheck": "tsc --noEmit",
+    "release": "changeset publish",
+    "release-dev": "changeset version --snapshot dev && changeset publish --tag dev"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
+    "@types/eslint": "8.56.2",
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "glob": "^10.3.10",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "packageManager": "pnpm@8.15.1"
+}

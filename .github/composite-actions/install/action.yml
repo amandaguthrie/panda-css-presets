@@ -1,0 +1,30 @@
+name: 'Install'
+description: 'Set Up Node.js and Run Install'
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v2.4.0
+      with:
+        version: 8
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
+
+    - name: Setup Git User
+      shell: bash
+      run: |
+        git config --global user.email "myemail@example.com"
+        git config --global user.name "My Name"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
+
+    - name: Build
+      shell: bash
+      run: pnpm build

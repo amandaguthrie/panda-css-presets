@@ -1,0 +1,48 @@
+name: Suggest A Feature
+description: "Add new functionality to a package."
+title: "[Feature]"
+labels: [ "feature-triage" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a feature request, please search open/closed issues for similar requests that may already be opened/closed.
+        
+        We're all volunteers and maintaining open source is not our full-time job.
+        Please help us help you by taking the time to accurately fill out this template.
+        
+        Thanks for taking the time to create a feature request.
+  - type: dropdown
+    attributes:
+      id: package
+      label: Package
+      description: Choose the package that you would like to request a feature for.
+      options:
+        - package-template
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Your Role
+      description: Please let us know your role as context for this feature request. Different roles have different needs, and this helps give us context to your request.
+      placeholder: As a ___developer, designer, product manager_____
+  - type: textarea
+    id: request
+    attributes:
+      label: Feature
+      description: Please explain what you would like the feature to do. Focus on what and not how.
+      placeholder: I would like to be able to ________________.
+  - type: textarea
+    id: justification
+    attributes:
+      label: Feature Benefit
+      description: Please describe how you (and others) would benefit from this feature.
+      placeholder: Having this feature would _______________.
+  - type: checkboxes
+    attributes:
+      label: Are you interested in contributing to adding this feature?
+      description: The maintainers may contact you if you're interested in contributing.
+      options:
+        - label: "Yes"
+        - label: "No"

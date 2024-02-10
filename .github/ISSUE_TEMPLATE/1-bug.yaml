@@ -1,0 +1,131 @@
+name: Report A Bug
+description: "Something that was working isn't working anymore, or isn't working the way it was intended to work."
+title: "[Bug]"
+labels: [ "bug-triage" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening a bug report, please search open/closed issues and discussions.
+        It's common for many people to be experiencing the same issue or have the same question.
+        
+        We're all volunteers and maintaining open source is not our full-time job.
+        Please help us help you by taking the time to accurately fill out this template.
+              
+        Thanks for taking the time to create an issue.
+  - type: dropdown
+    attributes:
+      id: package
+      label: Package
+      description: Choose the package that you are experiencing an issue with.
+      options:
+        - package-template
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Package Version
+      description: The version of the package that the issue occurred with.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "### Context"
+  - type: dropdown
+    attributes:
+      label: Operating System
+      description: Please select the operating system the issue occurred on.
+      options:
+        - Linux
+        - macOS
+        - Windows 10 or higher
+        - Windows Older Than Windows 10
+        - Other
+  - type: dropdown
+    attributes:
+      label: Language
+      description: Please select the language you're coding in.
+      options:
+        - Javascript
+        - Typescript
+        - Other
+  - type: dropdown
+    attributes:
+      label: Frontend Framework
+      description: Please choose the frontend framework/library you're using.
+      options:
+        - Alpine
+        - Angular
+        - Ember
+        - Lit
+        - Preact
+        - Qwik
+        - React
+        - Solid
+        - Stencil
+        - Svelte
+        - Vanilla
+        - Vue
+        - Other
+  - type: dropdown
+    attributes:
+      label: Build or Rendering Framework
+      description: Please choose the rendering framework you're using.
+      options:
+        - Astro
+        - Eleventy
+        - Gatsby
+        - Next
+        - Nuxt
+        - Qwik
+        - Redwood
+        - Remix
+        - SvelteKit
+        - Vite
+        - Other
+  - type: textarea
+    id: expected
+    attributes:
+      label: What I Expected To Happen
+      description: Please explain what you expected to happen instead of this issue.
+      placeholder: When I was ________, I expected __________ to happen, because _________.
+  - type: textarea
+    id: actual
+    attributes:
+      label: What Actually Happened
+      description: Please explain the issue and what happened.
+      placeholder: Instead, __________ happened.
+  - type: markdown
+    attributes:
+      value: |
+        ### Reproduction
+        #### Sandboxes
+        * [CodeSandbox](https://codesandbox.io)
+        * [Replit](https://replit.com/)
+        * [StackBlitz](https://stackblitz.com/)
+        
+        #### Resources
+        * [Minimum Reproducible Example](https://stackoverflow.com/help/minimal-reproducible-example)
+  - type: input
+    id: reproduction
+    attributes:
+      label: Link To Reproduction
+      description: Please link to a minimal reproducible example on CodeSandbox, StackBlitz, your GitHub repository, etc.
+      placeholder: https://replit.com....
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction Steps
+      description: Please write out step-by-step how to reproduce the issue with the reproduction link you've provided.
+      placeholder: |
+        1. Go to '...'
+        2. Run '...'
+        3. Navigate to '...'
+        4. See '...'
+  - type: checkboxes
+    attributes:
+      label: Are you interested in submitting a pull request to fix this issue?
+      description: The maintainers may contact you if you're interested in contributing.
+      options:
+        - label: "Yes"
+        - label: "No"

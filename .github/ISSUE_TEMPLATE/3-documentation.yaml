@@ -1,0 +1,44 @@
+name: Request Documentation Changes
+description: "Request documentation additions, clarification, and changes."
+title: "[Docs]"
+labels: [ "docs-triage" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you have an idea for new documentation, think a topic could use clarification, noticed something isn't documented, or think something is incorrect in the documentation, this is the correct form for you.
+        
+        Before opening a documentation request, please search open/closed issues and discussions to see if there is a request for the same thing.
+        
+        We're all volunteers and maintaining open source is not our full-time job.
+        Please help us help you by taking the time to accurately fill out this template.
+        
+        Thanks for taking the time to create a documentation request.
+  - type: dropdown
+    attributes:
+      id: package
+      label: Package
+      description: Choose the package that you would like to request documentation for.
+      options:
+        - package-template
+    validations:
+      required: true
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: What is the topic of this documentation request?
+      placeholder: ___Installation, configuration, etc.____
+  - type: textarea
+    id: request
+    attributes:
+      label: Description
+      description: Please explain what could be added or clarified.
+      placeholder: ___Add a configuration example with X framework.___
+  - type: checkboxes
+    attributes:
+      label: Are you interested in contributing to maintaining the documentation for this package?
+      description: The maintainers may contact you if you're interested in contributing.
+      options:
+        - label: "Yes"
+        - label: "No"
