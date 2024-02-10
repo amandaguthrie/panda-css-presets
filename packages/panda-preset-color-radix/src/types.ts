@@ -71,16 +71,14 @@ export type ColorRadixPresetOptions = {
    * @description (Optional) Replace or remove the 'radix' prefix for core color tokens.
    * - Default: 'radix'.
    * - The custom prefix will automatically be used for semantic color token values.
-   * @example "radix" => "{colors.radix.grass.1}"
-   * @example "radix.core" => "{colors.radix.core.grass.1}"
+   * @example "custom" => "{colors.custom.grass.1}"
    * @example  "" => "{colors.grass.1}"
    */
   coreColorPrefix?: string;
   /**
    * @description (Optional) Replace or remove the 'radix' prefix for semantic color tokens.
    * - Default: 'radix'.
-   * @example "radix" => "{colors.radix.primary.1}"
-   * @example "radix.semantic" => "{colors.radix.semantic.primary.1}"
+   * @example "custom" => "{colors.custom.primary.1}"
    * @example  "" => "{colors.primary.1}"
    */
   semanticColorPrefix?: string;
