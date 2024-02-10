@@ -47,7 +47,7 @@
   "devDependencies": {
     "@pandacss/dev": "^0.30.2",
     "@pandacss/types": "^0.30.2",
-    "@puffin-ui/types": "latest"
+    "@puffin-ui/types": "dev"
   },
   "peerDependencies": {
     "@pandacss/dev": "0.x"
