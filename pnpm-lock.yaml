@@ -69,8 +69,8 @@ importers:
         specifier: ^0.30.2
         version: 0.30.2
       '@puffin-ui/types':
-        specifier: latest
-        version: 0.0.0-dev-20240124212334
+        specifier: dev
+        version: 0.0.0-dev-20240210201816
 
 packages:
 
@@ -1109,8 +1109,8 @@ packages:
     resolution: {integrity: sha512-N46Vk2rq8idJzJ6EzHzLkQlAEwskLCiG59zqTzrY3pxLuW+rpQHHSHJLv71XRlC+2r1AjsTSy+FbMO+oftXKsw==}
     dev: false
 
-  /@puffin-ui/types@0.0.0-dev-20240124212334:
-    resolution: {integrity: sha512-yGh57S/KGXBNUS+iu5l98KLIWmAVLC/TLEtEPaBZKnopzDpOMZ8fKGhWkC4uPcYwLlOtoFGoyKY09AqHj6p0aQ==}
+  /@puffin-ui/types@0.0.0-dev-20240210201816:
+    resolution: {integrity: sha512-cvHot9UncbSKzzZQ5egopLBoZxszVgnbThwAUpO4GRCjV1jszLCU80eh3C/fK51/0d6Oqmm6WSQInKVClq4qFQ==}
     dev: true
 
   /@puffin-ui/utilities-color@0.0.0-dev-20240127002117:
