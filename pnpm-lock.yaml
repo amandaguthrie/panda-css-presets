@@ -51,6 +51,8 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/_template: {}
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
