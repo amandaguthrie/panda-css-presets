@@ -19,7 +19,8 @@ body:
       label: Package
       description: Choose the package that you are experiencing an issue with.
       options:
-        - package-template
+        - panda-preset-color-radix
+        - panda-preset-font-modernfs
     validations:
       required: true
   - type: input

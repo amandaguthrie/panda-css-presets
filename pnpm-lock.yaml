@@ -72,6 +72,22 @@ importers:
         specifier: dev
         version: 0.0.0-dev-20240210201816
 
+  packages/panda-preset-font-modernfs:
+    dependencies:
+      '@puffin-ui/shared':
+        specifier: dev
+        version: 0.0.0-dev-20240210201816
+    devDependencies:
+      '@pandacss/dev':
+        specifier: ^0.30.2
+        version: 0.30.2(typescript@5.3.3)
+      '@pandacss/types':
+        specifier: ^0.30.2
+        version: 0.30.2
+      '@puffin-ui/types':
+        specifier: dev
+        version: 0.0.0-dev-20240210201816
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
@@ -1107,6 +1123,10 @@ packages:
 
   /@puffin-ui/shared@0.0.0-dev-20240127002117:
     resolution: {integrity: sha512-N46Vk2rq8idJzJ6EzHzLkQlAEwskLCiG59zqTzrY3pxLuW+rpQHHSHJLv71XRlC+2r1AjsTSy+FbMO+oftXKsw==}
+    dev: false
+
+  /@puffin-ui/shared@0.0.0-dev-20240210201816:
+    resolution: {integrity: sha512-tztYQ5BPYrSFfBBJ5m1l9vtixblGXLXTpvn2Dc5USYKAEYvcm3us4xQ3F/5Ul/b7nO+0fHGhke0/whsKiNdFtg==}
     dev: false
 
   /@puffin-ui/types@0.0.0-dev-20240210201816:
