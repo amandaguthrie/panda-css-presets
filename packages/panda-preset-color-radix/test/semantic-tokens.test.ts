@@ -33,8 +33,8 @@ describe('Semantic Token Configuration & Generation', async () => {
     // It should not be the same as the last test. _light should be replaced with _osLight.
     assert.notEqual(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('default-color-map'));
 
-    if(GENERATE_SNAPSHOTS){
-      await writeJsonSnapshot("light-conditions-custom", toJson(pandaPresetColorRadix(config)));
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('light-conditions-custom', toJson(pandaPresetColorRadix(config)));
     }
 
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('light-conditions-custom'));
@@ -52,7 +52,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     // It should not be the same as the last test. _dark should be replaced with _osDark.
     assert.notEqual(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('default-color-map'));
 
-    if(GENERATE_SNAPSHOTS){
+    if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('dark-conditions-custom', toJson(pandaPresetColorRadix(config)));
     }
 
@@ -90,49 +90,51 @@ describe('Semantic Token Configuration & Generation', async () => {
   });
   await it('should use a semantic color prefix when provided', async () => {
     const config: Partial<ColorRadixPresetOptions> = {
-      colors: ["grass"],
-      semanticColorPrefix: "brand",
+      colors: ['grass'],
+      semanticColorPrefix: 'brand',
       semanticColorMap: {
-        primary: {color: "grass"}
-      }
-    }
+        primary: { color: 'grass' },
+      },
+    };
 
-    if(GENERATE_SNAPSHOTS){
-      await writeJsonSnapshot("semantic-prefix-custom", toJson(pandaPresetColorRadix(config)));
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('semantic-prefix-custom', toJson(pandaPresetColorRadix(config)));
     }
-    assert.match(toJson(pandaPresetColorRadix(config)), /"brand":/g)
-    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-custom'))
+    assert.match(toJson(pandaPresetColorRadix(config)), /"brand":/g);
+    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-custom'));
   });
   await it('should allow "" as a semantic color prefix to remove the prefix', async () => {
     const config: Partial<ColorRadixPresetOptions> = {
-      colors: ["grass"],
-      semanticColorPrefix: "",
+      colors: ['grass'],
+      semanticColorPrefix: '',
       semanticColorMap: {
-        primary: {color: "grass"}
-      }
-    }
+        primary: { color: 'grass' },
+      },
+    };
 
-    if(GENERATE_SNAPSHOTS){
-      await writeJsonSnapshot("semantic-prefix-blank-custom", toJson(pandaPresetColorRadix(config)));
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('semantic-prefix-blank-custom', toJson(pandaPresetColorRadix(config)));
     }
-    assert.match(toJson(pandaPresetColorRadix(config)), /"semanticTokens":{"colors":{"primary":{"1":{"value":{"base":"{colors.radix.grass.1.dark}",/g)
-    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-blank-custom'))
+    assert.match(
+      toJson(pandaPresetColorRadix(config)),
+      /"semanticTokens":{"colors":{"primary":{"1":{"value":{"base":"{colors.radix.grass.1.dark}",/g,
+    );
+    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-blank-custom'));
   });
   await it('should use core color prefix in semantic color values', async () => {
     const config: Partial<ColorRadixPresetOptions> = {
-      colors: ["grass"],
-      coreColorPrefix: "core",
-      semanticColorPrefix: "brand",
+      colors: ['grass'],
+      coreColorPrefix: 'core',
+      semanticColorPrefix: 'brand',
       semanticColorMap: {
-        primary: {color: "grass"}
-      }
-    }
+        primary: { color: 'grass' },
+      },
+    };
 
-    if(GENERATE_SNAPSHOTS){
-      await writeJsonSnapshot("semantic-core-prefix-custom", toJson(pandaPresetColorRadix(config)));
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('semantic-core-prefix-custom', toJson(pandaPresetColorRadix(config)));
     }
-    assert.match(toJson(pandaPresetColorRadix(config)), /colors.core.grass.8.dark/g)
-    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-core-prefix-custom'))
-  })
-
+    assert.match(toJson(pandaPresetColorRadix(config)), /colors.core.grass.8.dark/g);
+    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-core-prefix-custom'));
+  });
 });

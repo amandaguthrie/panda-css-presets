@@ -55,8 +55,8 @@ describe('Core Token Configuration & Generation', async () => {
   });
   await it('should use a color prefix when provided', async () => {
     const config: Partial<ColorRadixPresetOptions> = {
-      coreColorPrefix: 'core'
-    }
+      coreColorPrefix: 'core',
+    };
 
     if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('colors-core-prefix-custom', toJson(pandaPresetColorRadix(config)));
@@ -65,14 +65,14 @@ describe('Core Token Configuration & Generation', async () => {
   });
   await it('should allow "" as a core color prefix to remove the prefix', async () => {
     const config: Partial<ColorRadixPresetOptions> = {
-      colors: ["grass"],
-      coreColorPrefix: "",
-    }
+      colors: ['grass'],
+      coreColorPrefix: '',
+    };
 
-    if(GENERATE_SNAPSHOTS){
-      await writeJsonSnapshot("colors-core-prefix-blank-custom", toJson(pandaPresetColorRadix(config)));
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('colors-core-prefix-blank-custom', toJson(pandaPresetColorRadix(config)));
     }
-    assert.match(toJson(pandaPresetColorRadix(config)), /"tokens":{"colors":{"grass":/g)
-    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('colors-core-prefix-blank-custom'))
+    assert.match(toJson(pandaPresetColorRadix(config)), /"tokens":{"colors":{"grass":/g);
+    assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('colors-core-prefix-blank-custom'));
   });
 });

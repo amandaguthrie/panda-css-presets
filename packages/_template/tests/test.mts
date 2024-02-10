@@ -8,11 +8,7 @@ const testStream = run({ files: testFiles });
 
 // Failed tests do not change the exit code, so we configure it here.
 testStream.on('test:fail', () => {
-    process.exitCode = 1;
-  },
-);
+  process.exitCode = 1;
+});
 
 testStream.pipe(reporter).pipe(process.stdout);
-
-
-

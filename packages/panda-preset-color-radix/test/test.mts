@@ -1,18 +1,14 @@
-import {run} from "node:test";
-import {glob} from 'glob';
-import {spec} from "node:test/reporters";
+import { run } from 'node:test';
+import { glob } from 'glob';
+import { spec as SpecReporter } from 'node:test/reporters';
 
-const reporter = new spec();
+const reporter = new SpecReporter();
+const testFiles = await glob('**/*.test.{ts,mts}');
+const testStream = run({ files: testFiles });
 
-const testFiles = await glob('**/*.test.{ts,mts}')
+// Failed tests do not change the exit code, so we configure it here.
+testStream.on('test:fail', () => {
+  process.exitCode = 1;
+});
 
-const testStream = run({files: testFiles})
-
-testStream.compose(reporter).pipe(process.stdout)
-
-testStream.once('end', () => {
-  process.exit(0)
-})
-
-
-
+testStream.pipe(reporter).pipe(process.stdout);

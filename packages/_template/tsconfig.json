@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.build.json",
   "include": ["src"],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "."
   },
-  "module": "ES2023",
+  "module": "ES2023"
 }

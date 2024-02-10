@@ -47,12 +47,11 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
     });
   }
   const radixColors = transformColorScale({ provider: 'radix', colors: validColors, outputScale: '1-12' });
-  const coreTokens =
-    generateRadixCoreColorTokens({
-      colors: radixColors,
-      coreColorPrefix,
-      defaultColorMode: colorModeConditions?.default,
-    }) as RecursiveToken<string, any>;
+  const coreTokens = generateRadixCoreColorTokens({
+    colors: radixColors,
+    coreColorPrefix,
+    defaultColorMode: colorModeConditions?.default,
+  }) as RecursiveToken<string, any>;
 
   return definePreset({
     theme: {
@@ -70,10 +69,10 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
 
 /** @desc Generate Radix core color tokens from a list of Radix colors. */
 function generateRadixCoreColorTokens({
-                                        colors,
-                                        coreColorPrefix,
-                                        defaultColorMode,
-                                      }: {
+  colors,
+  coreColorPrefix,
+  defaultColorMode,
+}: {
   colors: ColorModeMapPartialKeys<ColorKeyRadix, ScaleOneTwelve>;
   coreColorPrefix: string;
   defaultColorMode: ColorMode;
@@ -107,11 +106,11 @@ function generateRadixCoreColorTokens({
 
 /** @desc Generate a 1-12 scale of light/dark values for semantic token using Radix colors as the base colors */
 function generateRadixSemanticTokens({
-                                       coreColorPrefix,
-                                       semanticColorPrefix,
-                                       semanticColorMap,
-                                       conditions,
-                                     }: {
+  coreColorPrefix,
+  semanticColorPrefix,
+  semanticColorMap,
+  conditions,
+}: {
   coreColorPrefix: string;
   semanticColorPrefix: string;
   semanticColorMap: SemanticColorMap;
@@ -178,10 +177,10 @@ function generateRadixSemanticTokens({
 function parsePrefix(prefix: unknown) {
   if (typeof prefix === 'string') {
     let validPrefix = prefix.trim();
-    const startEndPeriod = /^.*|.*$/g
+    const startEndPeriod = /^.*|.*$/g;
 
     if (validPrefix.startsWith('.') || validPrefix.endsWith('..')) {
-      validPrefix = validPrefix.replace(startEndPeriod, '')
+      validPrefix = validPrefix.replace(startEndPeriod, '');
     }
 
     return validPrefix;
