@@ -15,7 +15,6 @@ body:
         Thanks for taking the time to create an issue.
   - type: dropdown
     attributes:
-      id: package
       label: Package
       description: Choose the package that you are experiencing an issue with.
       options:

@@ -16,7 +16,6 @@ body:
         Thanks for taking the time to create a documentation request.
   - type: dropdown
     attributes:
-      id: package
       label: Package
       description: Choose the package that you would like to request documentation for.
       options:
