@@ -4,8 +4,21 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 
 ## Contents
 
+- [Breakpoints Presets]()
 - [Color Presets](#color-presets)
 - [Font Presets](#font-presets)
+
+---
+
+## Breakpoints Presets
+
+| Preset Link                                                             | Description                                                            |
+|-------------------------------------------------------------------------|------------------------------------------------------------------------|
+| [panda-preset-breakpoints](packages/panda-preset-breakpoints/README.md) | Generates theme breakpoints from popular open source design libraries. |
+
+---
+
+[> Back to Contents](#contents)
 
 ---
 
