@@ -4,10 +4,10 @@ import pandaPresetBreakpoints, { type BreakpointsPresetOptions, type DesignSyste
 import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@puffin-ui/shared';
 import { GENERATE_SNAPSHOTS } from './test-constants';
 
-describe('Core Token Configuration & Generation', async () => {
-  const chakraConfig = /{"theme":{"extend":{"breakpoints":{"sm":"30em","md":"48em","lg":"62em","xl":"80em","2xl":"96em"}}}}/g;
+describe('Configuration Options & Preset Generation', async () => {
   // Default is "primer"
-  const defaultConfig = '{"theme":{"extend":{"breakpoints":{"xs":"320px","sm":"544px","md":"768px","lg":"1012px","xl":"1280px","2xl":"1400px"}}}}';
+  const defaultConfig =
+    '{"theme":{"extend":{"breakpoints":{"sm":"30em","md":"48em","lg":"62em","xl":"80em","2xl":"96em"}}}}';
 
   await it('should return the default config if no options are provided', async () => {
     if (GENERATE_SNAPSHOTS) {
@@ -19,7 +19,7 @@ describe('Core Token Configuration & Generation', async () => {
   await it('should return the default config if an invalid design system is provided', async () => {
     const config: BreakpointsPresetOptions = {
       // @ts-expect-error We're testing an invalid value
-      system: 'blueberry'
+      system: 'blueberry',
     };
     if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('options-system-invalid', JSON.stringify(pandaPresetBreakpoints(config)));
@@ -40,22 +40,22 @@ describe('Core Token Configuration & Generation', async () => {
       system: 'chakra' as DesignSystem,
     };
     if (GENERATE_SNAPSHOTS) {
-      await writeJsonSnapshot('options-overwrite-undefined', JSON.stringify(pandaPresetBreakpoints(config)));
+      await writeJsonSnapshot('options-extend-undefined', JSON.stringify(pandaPresetBreakpoints(config)));
     }
     assert.match(toJson(pandaPresetBreakpoints()), /{"theme":{"extend":{"breakpoints":/g);
     assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-system-valid'));
-    assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-overwrite-undefined'));
+    assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-extend-undefined'));
   });
-  await it('should return the breakpoints in theme if overwrite is true', async () => {
+  await it('should return the breakpoints in theme if extend is false', async () => {
     const config: BreakpointsPresetOptions = {
       system: 'chakra' as DesignSystem,
-      overwrite: true,
+      extend: false,
     };
 
     if (GENERATE_SNAPSHOTS) {
-      await writeJsonSnapshot('options-overwrite-true', JSON.stringify(pandaPresetBreakpoints(config)));
+      await writeJsonSnapshot('options-extend-false', JSON.stringify(pandaPresetBreakpoints(config)));
     }
-    assert.match(toJson(pandaPresetBreakpoints(config)), /{"theme":{"breakpoints":/g)
-    assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-overwrite-true'));
+    assert.match(toJson(pandaPresetBreakpoints(config)), /{"theme":{"breakpoints":/g);
+    assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-extend-false'));
   });
 });

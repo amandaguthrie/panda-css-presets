@@ -5,7 +5,6 @@ import { GENERATE_SNAPSHOTS } from './test-constants';
 import pandaPresetBreakpoints from '../src';
 
 describe('Preset', async () => {
-
   await it('should be the default export', async () => {
     const preset = await import('../src');
 

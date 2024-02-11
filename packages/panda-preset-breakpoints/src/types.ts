@@ -1,13 +1,23 @@
+import type { Theme } from '@pandacss/types';
+
 /** A helper array to generate {@link DesignSystem} type */
 export const designSystemsArray = ['ant', 'bootstrap', 'chakra', 'material', 'mantine', 'primer', 'tailwind'];
 
-export const designSystemsArrayStatic = ['ant', 'bootstrap', 'chakra', 'material', 'mantine', 'primer', 'tailwind'] as const;
+export const designSystemsArrayStatic = [
+  'ant',
+  'bootstrap',
+  'chakra',
+  'material',
+  'mantine',
+  'primer',
+  'tailwind',
+] as const;
 
 /** A design system. */
-export type DesignSystem = (typeof designSystemsArrayStatic)[number]
+export type DesignSystem = (typeof designSystemsArrayStatic)[number];
 
 /** A dictionary of design systems and their breakpoint configurations */
-export type BreakpointMap = Record<DesignSystem, Record<string, string>>
+export type BreakpointMap = Record<DesignSystem, Exclude<Theme['breakpoints'], undefined>>;
 
 /** The preset options */
 export type BreakpointsPresetOptions = {
@@ -19,9 +29,9 @@ export type BreakpointsPresetOptions = {
   system?: DesignSystem;
   /**
    * @description (Optional) Whether to use {theme: {extend: {}}} to merge with current theme breakpoints or {theme: {}} to overwrite theme breakpoints.
-   * - false = Extend theme breakpoints
-   * - true = Overwrite theme breakpoints
-   * @default false
+   * - true = Extend theme breakpoints
+   * - false = Overwrite theme breakpoints
+   * @default true
    */
-  overwrite?: boolean;
+  extend?: boolean;
 };

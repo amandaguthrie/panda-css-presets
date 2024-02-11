@@ -1,14 +1,15 @@
-import { type BreakpointsPresetOptions, type DesignSystem, designSystemsArray } from './types';
+import { type BreakpointsPresetOptions, designSystemsArray } from './types';
 import { breakpoints } from './breakpoints';
 import type { Preset } from '@pandacss/types';
+import { maybeExtendTheme } from '@amandaguthrie/panda-preset-shared-utils';
 
 const defaultOptions: Required<BreakpointsPresetOptions> = {
   system: 'chakra',
-  overwrite: false,
+  extend: true,
 };
 
-export function pandaPresetBreakpoints(options?: BreakpointsPresetOptions): Preset {
-  const defaults = { ...defaultOptions } as Required<BreakpointsPresetOptions>;
+export function pandaPresetBreakpoints(options?: BreakpointsPresetOptions) {
+  const defaults = Object.assign({}, defaultOptions);
   const mergedOptions = Object.assign(defaults, options);
 
   function isDesignSystem(s: string) {
@@ -17,19 +18,7 @@ export function pandaPresetBreakpoints(options?: BreakpointsPresetOptions): Pres
 
   const brPts = breakpoints[isDesignSystem(mergedOptions.system) ? mergedOptions.system : defaultOptions.system];
 
-  if (mergedOptions.overwrite) {
-    return {
-      theme: {
-        breakpoints: brPts,
-      },
-    };
-  }
+  const themeContent = { breakpoints: brPts };
 
-  return {
-    theme: {
-      extend: {
-        breakpoints: brPts,
-      },
-    },
-  };
+  return maybeExtendTheme({ themeContent, extend: mergedOptions.extend }) as Preset;
 }
