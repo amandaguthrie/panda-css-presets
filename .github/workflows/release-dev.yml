@@ -1,11 +1,11 @@
-name: Release
+name: Release Dev Snapshot
 
 on:
   push:
     paths:
       - '.changeset/**'
       - 'packages/**'
-    branches:
+    branches-ignore:
       - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -26,17 +26,7 @@ jobs:
       - name: Build packages
         run: pnpm build
 
-      - name: Publish packages
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GH_PAT}}
-
       - name: Release to dev tag
-        if: steps.changesets.outputs.published != 'true'
         run: |
           git checkout main
           pnpm changeset version --snapshot dev
