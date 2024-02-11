@@ -1,0 +1,56 @@
+{
+  "name": "@amandaguthrie/panda-preset-breakpoints",
+  "version": "0.0.1",
+  "description": "A Panda CSS Preset that generates breakpoints based on popular design systems.",
+  "author": {
+    "name": "Amanda Guthrie",
+    "url": "https://github.com/amandaguthrie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amandaguthrie/panda-css-presets.git",
+    "directory": "packages/panda-preset-breakpoints"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "svelte": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "source": "./src/index.ts",
+      "svelte": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "side-effects": false,
+  "scripts": {
+    "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
+    "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
+    "dev": "pnpm build-fast --watch",
+    "test": "node --import tsx --test test/test.mts"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "dependencies": {
+    "@puffin-ui/shared": "^0.0.1"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.30.2",
+    "@pandacss/types": "^0.30.2"
+  },
+  "peerDependencies": {
+    "@pandacss/dev": "0.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

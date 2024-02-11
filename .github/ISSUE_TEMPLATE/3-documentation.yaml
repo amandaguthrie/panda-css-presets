@@ -19,6 +19,7 @@ body:
       label: Package
       description: Choose the package that you would like to request documentation for.
       options:
+        - panda-preset-breakpoints
         - panda-preset-color-radix
         - panda-preset-font-modernfs
     validations:

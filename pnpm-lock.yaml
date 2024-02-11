@@ -53,6 +53,19 @@ importers:
 
   packages/_template: {}
 
+  packages/panda-preset-breakpoints:
+    dependencies:
+      '@puffin-ui/shared':
+        specifier: ^0.0.1
+        version: 0.0.1
+    devDependencies:
+      '@pandacss/dev':
+        specifier: ^0.30.2
+        version: 0.30.2(typescript@5.3.3)
+      '@pandacss/types':
+        specifier: ^0.30.2
+        version: 0.30.2
+
   packages/panda-preset-color-radix:
     dependencies:
       '@puffin-ui/shared':
