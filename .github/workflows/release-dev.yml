@@ -11,8 +11,8 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  release:
-    name: Release
+  release-dev-snapshot:
+    name: Release Dev Snapshot
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +28,6 @@ jobs:
 
       - name: Release to dev tag
         run: |
-          git checkout main
           pnpm changeset version --snapshot dev
           pnpm changeset publish --tag dev
         env:
