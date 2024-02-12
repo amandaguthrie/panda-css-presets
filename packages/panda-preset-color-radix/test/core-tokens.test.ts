@@ -61,6 +61,7 @@ describe('Core Token Configuration & Generation', async () => {
     if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('colors-core-prefix-custom', toJson(pandaPresetColorRadix(config)));
     }
+    assert.match(toJson(pandaPresetColorRadix(config)), /{"colors":{"core":{"gray":/g);
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('colors-core-prefix-custom'));
   });
   await it('should allow "" as a core color prefix to remove the prefix', async () => {

@@ -34,10 +34,6 @@ type ExtendThemeArgs = WrapInExtendThemeArgs & {
   extend: true;
 };
 
-export type WrapInArgs<Key extends keyof WrapInExtendThemeArgs | keyof WrapInThemeArgs> =
-  | WrapInThemeArgs[Key]
-  | WrapInExtendThemeArgs[Key];
-
 type OverwriteThemeArgs = WrapInThemeArgs & {
   extend: false;
 };

@@ -9,7 +9,7 @@ const defaultOptions = {
 };
 
 export function pandaPresetFontModernFS(options?: FontModernFSPresetOptions) {
-  const mergedOptions = Object.assign(defaultOptions, options);
+  const mergedOptions = Object.assign({}, defaultOptions, options);
   const { fonts } = mergedOptions;
 
   // If an array of fonts is passed, filter to the valid font stack names. If there are no valid font stack names, return all font stacks.

@@ -19,18 +19,18 @@ export type DesignSystem = (typeof designSystemsArrayStatic)[number];
 /** A dictionary of design systems and their breakpoint configurations */
 export type BreakpointMap = Record<DesignSystem, Exclude<Theme['breakpoints'], undefined>>;
 
-/** The preset options */
+/** panda-preset-breakpoints preset options */
 export type BreakpointsPresetOptions = {
   /**
    * @description (Optional) The name of the design system to generate breakpoint core tokens for.
-   * @example "bootstrap" will generate breakpoint tokens using Bootstrap v5 settings.
+   * @example "bootstrap" will generate breakpoint tokens using Bootstrap v5 default settings.
    * @default "chakra"
    */
   system?: DesignSystem;
   /**
-   * @description (Optional) Whether to use {theme: {extend: {}}} to merge with current theme breakpoints or {theme: {}} to overwrite theme breakpoints.
-   * - true = Extend theme breakpoints
-   * - false = Overwrite theme breakpoints
+   * @description (Optional) Whether to merge or replace other presets' breakpoints.
+   * - true = Return the configuration in `{theme: {extend: {breakpoints: {}}}` to merge the configuration with other presets' breakpoints.
+   * - false = Return the configuration in `{theme: {breakpoints: {}}` to replace other presets' breakpoint configuration with this one.
    * @default true
    */
   extend?: boolean;

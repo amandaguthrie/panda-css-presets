@@ -20,7 +20,7 @@ const defaultOptions = {
 };
 
 export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
-  const mergedOptions = Object.assign(defaultOptions, options);
+  const mergedOptions = Object.assign({}, defaultOptions, options);
   const { colors, colorModeConditions, coreColorPrefix, semanticColorMap, semanticColorPrefix } = mergedOptions;
 
   // If an array of colors is passed, filter the array to valid Radix color names. If the array has no valid color names, return all Radix colors.

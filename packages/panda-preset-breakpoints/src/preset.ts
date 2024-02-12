@@ -9,8 +9,7 @@ const defaultOptions: Required<BreakpointsPresetOptions> = {
 };
 
 export function pandaPresetBreakpoints(options?: BreakpointsPresetOptions) {
-  const defaults = Object.assign({}, defaultOptions);
-  const mergedOptions = Object.assign(defaults, options);
+  const mergedOptions = Object.assign({}, defaultOptions, options);
 
   function isDesignSystem(s: string) {
     return designSystemsArray.includes(s);

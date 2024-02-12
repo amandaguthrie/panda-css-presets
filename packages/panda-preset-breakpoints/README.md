@@ -85,10 +85,10 @@ The parameters for the default export options are exported as type `BreakpointsP
     - Specify a design system to generate breakpoints for.
     - If a string is not a valid design system, the preset will return the default system
     - Default: `"chakra"`
-- `overwrite` (`boolean`, _Optional_)
-    - Whether to generate breakpoints in `theme: {}` and overwrite other breakpoint configurations or
-      in `theme: {extend: {}}` to merge with other breakpoints.
-    - Default: `false`
+- `extend` (`boolean`, _Optional_)
+    - `true` - Return the configuration in `{theme: {extend: {breakpoints: {}}}` to merge the configuration with other presets' breakpoints.
+    - `false` - Return the configuration in `{theme: {breakpoints: {}}` to replace other presets' breakpoint configuration with this one.
+    - Default: `true`
 
 #### Return
 
@@ -177,30 +177,43 @@ const primerPresetReturn = {
 
 ### Generate breakpoints that replace other breakpoints
 
+The `extend: false` configuration option allows for replacement of other preset's breakpoint settings with the configuration defined in `panda-preset-breakpoints`.
+
+If set to `false`, the preset will only overwrite the `breakpoints` area of the theme and not other theme properties.
+<br><br><br>
+The following example uses `@pandacss/preset-panda` and the breakpoints preset with the `material` system.
+
+`preset-panda` includes the breakpoints `["sm", "md", "lg", "xl", "2xl"]`. The `material` system only includes `["xs", sm", "md", "lg", "xl"]`.
+
+If the following example were using the default settings where `extend: true`, it would result in the `material` system keys and the `2xl` breakpoint from `preset-panda`.
+
+Instead, using `extend: false`, the resulting CSS generated for breakpoints will result in only the `material` system breakpoints.
+
 ```typescript
 import { defineConfig } from '@pandacss/dev';
+import pandaPreset from "@pandacss/preset-panda";
 import breakpointsPreset from '@amandaguthrie/panda-preset-breakpoints';
 
 export default defineConfig({
   // ...
   presets: [
     // ... Other presets
-    breakpointsPreset({ system: "primer", overwrite: true }),
+    pandaPreset,
+    breakpointsPreset({ system: "material", extend: false }),
   ],
   // ...
 });
 ```
 
 ```typescript
-const primerOverwritePresetReturn = {
+const materialOverwritePresetReturn = {
   theme: {
     breakpoints: {
-      xs: '320px',
-      sm: '544px',
-      md: '768px',
-      lg: '1012px',
-      xl: '1280px',
-      '2xl': '1400px',
+      xs: '0',
+      sm: '600px',
+      md: '840px',
+      lg: '1200px',
+      xl: '1600px',
     }
   }
 }

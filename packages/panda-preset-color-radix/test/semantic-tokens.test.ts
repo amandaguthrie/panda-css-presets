@@ -71,6 +71,7 @@ describe('Semantic Token Configuration & Generation', async () => {
       await writeJsonSnapshot('colors-array-add-semantic', toJson(pandaPresetColorRadix(config)));
     }
 
+    assert.match(toJson(pandaPresetColorRadix(config)), /"grass":{/g);
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('colors-array-add-semantic'));
   });
 
@@ -86,6 +87,7 @@ describe('Semantic Token Configuration & Generation', async () => {
       await writeJsonSnapshot('color-map-ignore-invalid', toJson(pandaPresetColorRadix(config)));
     }
 
+    assert.match(toJson(pandaPresetColorRadix(config)), /"semanticTokens":{}/g);
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('color-map-ignore-invalid'));
   });
   await it('should use a semantic color prefix when provided', async () => {
