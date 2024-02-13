@@ -4,7 +4,7 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 
 ## Contents
 
-- [Breakpoints Presets]()
+- [Breakpoints Presets](#breakpoints-presets)
 - [Color Presets](#color-presets)
 - [Font Presets](#font-presets)
 
