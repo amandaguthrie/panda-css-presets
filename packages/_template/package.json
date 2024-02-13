@@ -38,7 +38,7 @@
     "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
     "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
     "dev": "pnpm build-fast --watch",
-    "test": "node --import tsx tests/test.mts"
+    "test": "node --import tsx test/test.mts"
   },
   "packageManager": "pnpm@8.15.1",
   "publishConfig": {
