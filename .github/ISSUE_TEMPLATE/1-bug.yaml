@@ -18,6 +18,7 @@ body:
       label: Package
       description: Choose the package that you are experiencing an issue with.
       options:
+        - panda-preset-breakpoints
         - panda-preset-color-radix
         - panda-preset-font-modernfs
     validations:
