@@ -1,5 +1,5 @@
 ---
-"@amandaguthrie/panda-preset-breakpoints": patch
+"@amandaguthrie/panda-preset-breakpoints": minor
 ---
 
 - Add preset, types, and tests
