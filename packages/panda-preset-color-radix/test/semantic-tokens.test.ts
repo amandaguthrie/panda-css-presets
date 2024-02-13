@@ -10,7 +10,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix()), await readJsonSnapshot('default'));
   });
   await it('should generate semantic tokens when provided with a semantic color map', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       semanticColorMap: {
         primary: { color: 'grass' },
       },
@@ -21,7 +21,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('default-color-map'));
   });
   await it('should use light conditions when provided', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colorModeConditions: {
         light: ['_osLight'],
       },
@@ -40,7 +40,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('light-conditions-custom'));
   });
   await it('should use dark conditions when provided', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colorModeConditions: {
         dark: ['_osDark'],
       },
@@ -60,7 +60,7 @@ describe('Semantic Token Configuration & Generation', async () => {
   });
 
   await it('should add missing core tokens', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colors: ['cyan'],
       semanticColorMap: {
         primary: { color: 'grass' },
@@ -76,7 +76,7 @@ describe('Semantic Token Configuration & Generation', async () => {
   });
 
   await it('should ignore color tokens that are not Radix color names', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       semanticColorMap: {
         // @ts-expect-error testing invalid token
         primary: { color: 'blueberry' },
@@ -91,7 +91,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('color-map-ignore-invalid'));
   });
   await it('should use a semantic color prefix when provided', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colors: ['grass'],
       semanticColorPrefix: 'brand',
       semanticColorMap: {
@@ -106,7 +106,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-custom'));
   });
   await it('should allow "" as a semantic color prefix to remove the prefix', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colors: ['grass'],
       semanticColorPrefix: '',
       semanticColorMap: {
@@ -124,7 +124,7 @@ describe('Semantic Token Configuration & Generation', async () => {
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-blank-custom'));
   });
   await it('should use core color prefix in semantic color values', async () => {
-    const config: Partial<ColorRadixPresetOptions> = {
+    const config: ColorRadixPresetOptions = {
       colors: ['grass'],
       coreColorPrefix: 'core',
       semanticColorPrefix: 'brand',

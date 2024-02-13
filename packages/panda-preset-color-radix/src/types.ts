@@ -7,19 +7,19 @@ export type ColorModeConditions = {
    * @default 'dark'
    * @example 'dark' generates core tokens with scale values like {DEFAULT: {value: '#000000'}, light: {value: '#FFFFFF'}, dark: {value: '#000000'}}
    */
-  default?: ColorMode;
+  default: ColorMode;
   /**
    * @description An array of Panda condition names (lowercase strings, prefixed with an _) that should generate with the Radix light theme color value.
    * @default ['_light']
    * @example ['_light', '_osLight', '_yourCustomLightCondition'] generates semantic tokens with values like {value: {base: "#000000", "_dark" "#000000", "_osDark": "#000000", "_yourCustomLightCondition" : "#000000"}}
    */
-  light?: Condition[];
+  light: Condition[];
   /**
    * @description An array of Panda condition names (lowercase strings, prefixed with an _) that should generate with the Radix light theme color value.
    * @default ['dark']
    * @example ['_light', '_osDark', '_yourCustomDarkCondition']  generates semantic tokens with values like {value: {base: "#000000", "_dark" "#000000", "_osDark": "#000000", "_yourCustomDarkCondition" : "#000000"}}
    */
-  dark?: Condition[];
+  dark: Condition[];
 };
 
 /**
@@ -48,25 +48,22 @@ export type SemanticColorMap = Record<
 >;
 
 /**
- * @type ColorRadixPresetOptions
- * @property colors An optional array of radix color names to generate core tokens for. To generate core tokens for all colors, specify "*" as a string value.
- * @property colorModeConditions  An optional object to specify color mode defaults and conditions.
- * @property colorModeConditions.default Whether the "DEFAULT" core token value will be the Radix light or dark theme.
+ * @type ColorRadixPresetDefaults
  */
 
-export type ColorRadixPresetOptions = {
+export type ColorRadixPresetDefaults = {
   /**
    * @description (Optional) An array of Radix color names to generate color tokens for. To generate tokens for all Radix colors, specify "*" as a string value.
    * @default "*"
    * @example "*" will generate tokens for all Radix colors.
    * @example ["cyan", "grass"] will generate tokens only for Radix colors cyan, grass, and other colors specified (if any) in semanticColorMap.
    */
-  colors?: '*' | ColorKeyRadix[];
+  colors: '*' | ColorKeyRadix[];
   /**
    * @description (Optional) Specify the color mode for default color values and which light and dark conditions to generate semantic tokens for.
    * @see {@link ColorModeConditions} for more information on the individual properties.
    */
-  colorModeConditions?: ColorModeConditions;
+  colorModeConditions: ColorModeConditions;
   /**
    * @description (Optional) Replace or remove the 'radix' prefix for core color tokens.
    * - Default: 'radix'.
@@ -74,17 +71,25 @@ export type ColorRadixPresetOptions = {
    * @example "custom" => "{colors.custom.grass.1}"
    * @example  "" => "{colors.grass.1}"
    */
-  coreColorPrefix?: string;
+  coreColorPrefix: string;
   /**
    * @description (Optional) Replace or remove the 'radix' prefix for semantic color tokens.
    * - Default: 'radix'.
    * @example "custom" => "{colors.custom.primary.1}"
    * @example  "" => "{colors.primary.1}"
    */
-  semanticColorPrefix?: string;
+  semanticColorPrefix: string;
   /**
    * @description (Optional) Specify a color map to generate semantic tokens that point to generated Radix color tokens.
    * @see {@link SemanticColorMap} for more information on the individual properties.
    */
-  semanticColorMap?: SemanticColorMap;
+  semanticColorMap: SemanticColorMap;
+};
+
+/**
+ * @type ColorRadixPresetOptions
+ */
+
+export type ColorRadixPresetOptions = Omit<Partial<ColorRadixPresetDefaults>, 'colorModeConditions'> & {
+  colorModeConditions?: Partial<ColorModeConditions>;
 };

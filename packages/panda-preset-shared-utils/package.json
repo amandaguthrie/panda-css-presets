@@ -39,9 +39,10 @@
     "dev": "pnpm build-fast --watch",
     "test": "node --import tsx --test test/test.mts"
   },
-  "packageManager": "pnpm@8.15.1",
+  "packageManager": "pnpm@8.15.2",
   "dependencies": {
-    "@puffin-ui/shared": "^0.0.1"
+    "@puffin-ui/shared": "^0.0.1",
+    "deepmerge-ts": "^5.1.0"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.30.2",

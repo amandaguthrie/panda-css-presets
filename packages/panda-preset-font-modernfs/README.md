@@ -209,6 +209,16 @@ const someFonts = {
 [> Back to Contents](#contents)
 
 ---
+## Acknowledgement
+
+* [Panda CSS][panda-github] for building a robust and extensible styling solution
+* [Modern Font Stacks][modern-font-stack-github] for curating cohesive collections of native web fonts
+
+---
+
+[> Back to Contents](#contents)
+
+---
 
 ## License
 
