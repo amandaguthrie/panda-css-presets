@@ -45,8 +45,8 @@
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.30.2",
-    "@pandacss/types": "^0.30.2"
+    "@pandacss/dev": "^0.31.0",
+    "@pandacss/types": "^0.31.0"
   },
   "peerDependencies": {
     "@pandacss/dev": "0.x"

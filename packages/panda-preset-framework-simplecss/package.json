@@ -47,7 +47,7 @@
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.30.2",
+    "@pandacss/dev": "^0.31.0",
     "@puffin-ui/shared": "^0.0.1"
   },
   "peerDependencies": {

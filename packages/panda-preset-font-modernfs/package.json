@@ -44,8 +44,8 @@
     "@puffin-ui/shared": "^0.0.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.30.2",
-    "@pandacss/types": "^0.30.2",
+    "@pandacss/dev": "^0.31.0",
+    "@pandacss/types": "^0.31.0",
     "@puffin-ui/types": "^0.0.1"
   },
   "peerDependencies": {
