@@ -1,6 +1,6 @@
-name: Report A Bug
+name: "\U0001F41B Report A Bug"
 description: "Something that was working isn't working anymore, or isn't working the way it was intended to work."
-title: "[Bug]"
+title: "[Bug]: "
 labels: [ "bug-triage" ]
 body:
   - type: markdown
