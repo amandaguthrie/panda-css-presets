@@ -161,9 +161,15 @@ const tokensByCategory: Record<string, Record<string, Record<string, string>>> =
 
 entries(defaultTokens).forEach(([token, variable]) => {
   const category = token.split('.')[0];
-  tokensByCategory[category][token] = variable;
+  if(category && category in tokensByCategory){
+    const tokensByCatCat = tokensByCategory[category]
+    if(tokensByCatCat){
+      tokensByCatCat[token] = variable;
+    }
+  }
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let categoryTables = '';
 
 entries(tokensByCategory).forEach(([category, t]) => {
@@ -177,5 +183,3 @@ entries(tokensByCategory).forEach(([category, t]) => {
 
   categoryTables += categoryTable += '\n';
 });
-
-console.log(categoryTables);
