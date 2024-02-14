@@ -161,9 +161,9 @@ const tokensByCategory: Record<string, Record<string, Record<string, string>>> =
 
 entries(defaultTokens).forEach(([token, variable]) => {
   const category = token.split('.')[0];
-  if(category && category in tokensByCategory){
-    const tokensByCatCat = tokensByCategory[category]
-    if(tokensByCatCat){
+  if (category && category in tokensByCategory) {
+    const tokensByCatCat = tokensByCategory[category];
+    if (tokensByCatCat) {
       tokensByCatCat[token] = variable;
     }
   }
