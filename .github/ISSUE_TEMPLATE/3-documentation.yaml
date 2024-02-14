@@ -1,6 +1,6 @@
-name: Request Documentation Changes
+name: "\U0001F4D6 Request Documentation Changes"
 description: "Request documentation additions, clarification, and changes."
-title: "[Docs]"
+title: "[Docs]: "
 labels: [ "docs-triage" ]
 body:
   - type: markdown
@@ -21,6 +21,7 @@ body:
       options:
         - panda-preset-breakpoints
         - panda-preset-color-radix
+        - panda-preset-framework-simplecss
         - panda-preset-font-modernfs
     validations:
       required: true

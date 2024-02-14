@@ -1,7 +1,7 @@
 {
-  "name": "@amandaguthrie/panda-preset-color-radix",
-  "version": "0.1.0",
-  "description": "A Panda CSS Preset that generates Radix UI Colors as core and semantic tokens",
+  "name": "@amandaguthrie/panda-preset-framework-simplecss",
+  "version": "0.0.0",
+  "description": "A Panda CSS preset based on simple.css",
   "author": {
     "name": "Amanda Guthrie",
     "url": "https://github.com/amandaguthrie"
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/amandaguthrie/panda-css-presets.git",
-    "directory": "packages/panda-preset-color-radix"
+    "directory": "packages/panda-preset-framework-simplecss"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -37,23 +37,21 @@
     "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
     "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
     "dev": "pnpm build-fast --watch",
-    "test": "node --import tsx --test test/test.mts"
+    "test": "node --import tsx test/test.mts"
   },
   "packageManager": "pnpm@8.15.2",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@amandaguthrie/panda-preset-shared-utils": "workspace:*",
-    "@puffin-ui/shared": "^0.0.1",
-    "@puffin-ui/utilities-color": "^0.0.1"
+    "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.31.0",
-    "@pandacss/types": "^0.31.0",
-    "@puffin-ui/types": "^0.0.1"
+    "@puffin-ui/shared": "^0.0.1"
   },
   "peerDependencies": {
-    "@pandacss/dev": "0.x"
-  },
-  "publishConfig": {
-    "access": "public"
+    "@pandacss/dev": ">=0.20.1",
+    "@pandacss/preset-base": ">=0.20.1"
   }
 }

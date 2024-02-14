@@ -33,6 +33,17 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 [> Back to Contents](#contents)
 
 ---
+## Frameworks
+
+| Preset Link                                                                              | Description                                          |
+|------------------------------------------------------------------------------------------|------------------------------------------------------|
+| [panda-preset-framework-simplecss](packages/panda-preset-framework-simplecssx/README.md) | Simple.css for Panda. Configurable colors and fonts. |
+
+---
+
+[> Back to Contents](#contents)
+
+---
 
 ## Font Presets
 

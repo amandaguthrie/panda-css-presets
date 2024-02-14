@@ -9,9 +9,10 @@ import {
 } from '@puffin-ui/types';
 import { transformColorScale } from '@puffin-ui/utilities-color';
 import { entries, fromEntries } from '@puffin-ui/shared';
-import type { ColorModeConditions, ColorRadixPresetOptions, SemanticColorMap } from './types';
+import type { ColorModeConditions, ColorRadixPresetDefaults, ColorRadixPresetOptions, SemanticColorMap } from './types';
+import { parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
 
-const defaultOptions = {
+const defaultOptions: ColorRadixPresetDefaults = {
   colors: '*',
   colorModeConditions: { default: 'dark', light: ['_light'], dark: ['_dark'] },
   coreColorPrefix: 'radix',
@@ -50,7 +51,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
   const coreTokens = generateRadixCoreColorTokens({
     colors: radixColors,
     coreColorPrefix,
-    defaultColorMode: colorModeConditions?.default,
+    defaultColorMode: colorModeConditions.default,
   }) as RecursiveToken<string, any>;
 
   return definePreset({
@@ -79,7 +80,7 @@ function generateRadixCoreColorTokens({
 }) {
   const { light, dark } = colors;
 
-  const prefix = parsePrefix(coreColorPrefix);
+  const prefix = parsePrefix(coreColorPrefix, '');
 
   const coreTokens = fromEntries(
     // @ts-expect-error - This is a required vs partial error, but since we filtered the colors above in the transform function, there shouldn't be any undefined color values at this point.
@@ -101,7 +102,7 @@ function generateRadixCoreColorTokens({
     }),
   );
 
-  return prefix.length > 0 ? { [prefix]: coreTokens } : coreTokens;
+  return prefix ? { [prefix]: coreTokens } : coreTokens;
 }
 
 /** @desc Generate a 1-12 scale of light/dark values for semantic token using Radix colors as the base colors */
@@ -117,9 +118,9 @@ function generateRadixSemanticTokens({
   conditions: ColorModeConditions;
 }) {
   const fallbackDefault = conditions.default ?? 'dark';
-  const semanticPrefix = parsePrefix(semanticColorPrefix);
-  const corePrefix = parsePrefix(coreColorPrefix);
-  const corePrefixToken = corePrefix.length > 0 ? `${corePrefix}.` : '';
+  const semanticPrefix = parsePrefix(semanticColorPrefix, '');
+  const corePrefix = parsePrefix(coreColorPrefix, '');
+  const corePrefixToken = corePrefix ? `${corePrefix}.` : '';
 
   const validColors = fromEntries(
     entries(semanticColorMap).filter(([, mapDetail]) => radixAllColorsArray.includes(mapDetail.color)),
@@ -167,24 +168,5 @@ function generateRadixSemanticTokens({
     }),
   );
 
-  return semanticPrefix.length > 0 ? { [semanticPrefix]: semanticTokens } : semanticTokens;
-}
-
-/**
- * @desc Trims start and end '.' off from a prefix, if necessary. If the prefix is not a string, returns the default prefix.
- * @param prefix The prefix to trim .
- */
-function parsePrefix(prefix: unknown) {
-  if (typeof prefix === 'string') {
-    let validPrefix = prefix.trim();
-    const startEndPeriod = /^.*|.*$/g;
-
-    if (validPrefix.startsWith('.') || validPrefix.endsWith('..')) {
-      validPrefix = validPrefix.replace(startEndPeriod, '');
-    }
-
-    return validPrefix;
-  }
-
-  return defaultOptions.semanticColorPrefix;
+  return semanticPrefix ? { [semanticPrefix]: semanticTokens } : semanticTokens;
 }
