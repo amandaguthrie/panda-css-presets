@@ -20,6 +20,7 @@ body:
       options:
         - panda-preset-breakpoints
         - panda-preset-color-radix
+        - panda-preset-framework-simplecss
         - panda-preset-font-modernfs
     validations:
       required: true

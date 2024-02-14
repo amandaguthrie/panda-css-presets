@@ -41,7 +41,7 @@
   },
   "packageManager": "pnpm@8.15.2",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "dependencies": {
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
