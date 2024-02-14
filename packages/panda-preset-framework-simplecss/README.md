@@ -50,12 +50,16 @@ bun add -D @amandaguthrie/panda-preset-framework-simplecss
 In your `panda.config.{ts,js}` file, import the preset and include it in your presets list. This preset does rely on
 the default settings of @pandacss/preset-base as a dependency.
 
+>[!CAUTION]
+> It is important to set `preflight` to `false`. Simple.css has its own reset and there will be undesirable effects to margins, heading spacing, etc. if preflight is enabled.
+
 > [!TIP]
 > If you don't currently have any presets in your config file, add
 > `@pandacss/preset-base` to the array.
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
+import presetBase from "@pandacss/preset-base";
 import simpleCssPreset, { type BreakpointsPresetOptions } from '@amandaguthrie/panda-preset-framework-simplecss';
 
 const simpleCssConfig: SimpleCssPresetOptions = {
@@ -63,8 +67,10 @@ const simpleCssConfig: SimpleCssPresetOptions = {
 };
 
 export default defineConfig({
+  preflight: false,
   // ...
   presets: [
+    presetBase,
     // ... Other presets
     simpleCssPreset(simpleCssConfig),
   ],
@@ -171,11 +177,14 @@ Panda CSS `Preset`
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
+import presetBase from "@pandacss/preset-base";
 import simpleCssPreset from '@amandaguthrie/panda-preset-frameworks-simplecss';
 
 export default defineConfig({
+  preflight: false,
   // ...
   presets: [
+    presetBase,
     // ... Other presets
     simpleCssPreset({ colors: { red: { 2: { value: "#EC8E7B" }, 3: { value: "#E54D2E" } } } }),
   ],
@@ -206,9 +215,11 @@ const defaultPresetReturn = {
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
+import presetBase from "@pandacss/preset-base";
 import simpleCssPreset from '@amandaguthrie/panda-preset-frameworks-simplecss';
 
 export default defineConfig({
+  preflight: false,
   // ...
   theme: {
     extend: {
@@ -222,6 +233,7 @@ export default defineConfig({
     }
   },
   presets: [
+    presetBase,
     // ... Other presets
     simpleCssPreset(),
   ],
