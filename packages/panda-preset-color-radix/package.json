@@ -1,6 +1,6 @@
 {
   "name": "@amandaguthrie/panda-preset-color-radix",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Panda CSS Preset that generates Radix UI Colors as core and semantic tokens",
   "author": {
     "name": "Amanda Guthrie",

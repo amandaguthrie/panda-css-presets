@@ -1,5 +1,15 @@
 # @amandaguthrie/panda-preset-color-radix
 
+## 0.1.1
+
+### Patch Changes
+
+- [#10](https://github.com/amandaguthrie/panda-css-presets/pull/10) [`66cbd67`](https://github.com/amandaguthrie/panda-css-presets/commit/66cbd674bfc30a92cb1beb01b3cdb6c15e4b91cd) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - ## Internal Changes
+  - Moved internal function `parsePrefix` to `@amandaguthrie/panda-preset-shared-utils`.
+  - Updated preset default and options types.
+- Updated dependencies [[`66cbd67`](https://github.com/amandaguthrie/panda-css-presets/commit/66cbd674bfc30a92cb1beb01b3cdb6c15e4b91cd)]:
+  - @amandaguthrie/panda-preset-shared-utils@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
