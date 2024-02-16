@@ -52,8 +52,7 @@ In your `panda.config.{ts,js}` file, import the preset and include it in your pr
 any of the default @pandacss presets as a dependency.
 
 > [!TIP]
-> If you don't currently have any presets in your config file and are using any of the Panda CSS defaults, add
-> `@pandacss/preset-base` and/or `@pandacss/preset-panda` to the array.
+> If you don't currently have any presets in your config file and are using any of the Panda CSS defaults, you may need to add `@pandacss/preset-panda` to the `presets` array.
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';

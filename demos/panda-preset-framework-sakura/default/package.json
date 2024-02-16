@@ -1,0 +1,29 @@
+{
+  "name": "default",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "/vite preview",
+    "check": "sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@amandaguthrie/panda-preset-framework-sakura": "workspace:*",
+    "@pandacss/dev": "^0.31.0",
+    "@pandacss/preset-base": "^0.31.0",
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/adapter-netlify": "^4.1.0",
+    "@sveltejs/adapter-static": "^3.0.1",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3"
+  },
+  "type": "module"
+}

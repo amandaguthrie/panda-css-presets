@@ -1,7 +1,7 @@
 {
-  "name": "@amandaguthrie/panda-preset-breakpoints",
-  "version": "0.1.1",
-  "description": "A Panda CSS Preset that generates breakpoints based on popular design systems.",
+  "name": "@amandaguthrie/panda-preset-framework-sakura",
+  "version": "0.0.0",
+  "description": "A Panda CSS preset that implements Sakura.",
   "author": {
     "name": "Amanda Guthrie",
     "url": "https://github.com/amandaguthrie"
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/amandaguthrie/panda-css-presets.git",
-    "directory": "packages/panda-preset-breakpoints"
+    "directory": "packages/panda-preset-framework-sakura"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -37,21 +37,22 @@
     "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
     "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
     "dev": "pnpm build-fast --watch",
-    "test": "node --import tsx --test test/test.mts"
+    "test": "node --import tsx test/test.mts"
   },
   "packageManager": "pnpm@8.15.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@puffin-ui/shared": "^0.0.1",
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.31.0",
-    "@pandacss/types": "^0.31.0"
+    "@pandacss/types": "^0.31.0",
+    "@puffin-ui/shared": "^0.0.1"
   },
   "peerDependencies": {
-    "@pandacss/dev": "0.x"
-  },
-  "publishConfig": {
-    "access": "public"
+    "@pandacss/dev": "0.x",
+    "@pandacss/preset-base": "0.x"
   }
 }

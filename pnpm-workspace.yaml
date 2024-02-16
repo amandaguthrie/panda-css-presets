@@ -1,4 +1,5 @@
 packages:
   - 'apps/**'
+  - 'demos/**'
   - 'packages/**'
   - '!**/_template/**'
