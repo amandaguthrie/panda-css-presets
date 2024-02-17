@@ -12,17 +12,17 @@ export const semanticColorTokens = (prefix: string) => {
   const osDark = `_${prefix}OsDark`;
   return defineSemanticTokens.colors({
     [prefix]: {
-      accent: {
-        DEFAULT: { value: { base: `{colors.${prefix}.blue.3}`, [osDark]: `{colors.${prefix}.yellow.3}` } },
-        hover: { value: { base: `{colors.${prefix}.blue.2}`, [osDark]: `{colors.${prefix}.yellow.1}` } },
-        text: { value: { base: `{colors.${prefix}.bg}`, [osDark]: `{colors.${prefix}.bg}` } },
-      },
       border: {
         value: { base: `{colors.${prefix}.neutral.6}` },
       },
       bg: {
         DEFAULT: { value: { base: `{colors.${prefix}.white}`, [osDark]: `{colors.${prefix}.neutral.10}` } },
         accent: { value: { base: `{colors.${prefix}.neutral.1}`, [osDark]: `{colors.${prefix}.neutral.9}` } },
+      },
+      accent: {
+        DEFAULT: { value: { base: `{colors.${prefix}.blue.3}`, [osDark]: `{colors.${prefix}.yellow.3}` } },
+        hover: { value: { base: `{colors.${prefix}.blue.2}`, [osDark]: `{colors.${prefix}.yellow.1}` } },
+        text: { value: `colors.${prefix}.bg` },
       },
       code: {
         value: { base: `{colors.${prefix}.red.3}`, [osDark]: `{colors.${prefix}.red.2}` },

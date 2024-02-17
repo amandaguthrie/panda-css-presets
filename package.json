@@ -50,7 +50,9 @@
     "overrides": {
       "@amandaguthrie/panda-preset-shared-utils": "workspace:*",
       "@pandacss/dev": "^0.31.0",
-      "@pandacss/types": "^0.31.0"
+      "@pandacss/types": "^0.31.0",
+      "svelte": "^4.2.11",
+      "vite": "^5.1.3"
     }
   }
 }

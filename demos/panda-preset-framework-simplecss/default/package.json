@@ -1,5 +1,5 @@
 {
-  "name": "panda-preset-framework-sakura-demo",
+  "name": "panda-preset-framework-simplecss-demo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "check:watch": "sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@amandaguthrie/panda-preset-framework-sakura": "workspace:*",
+    "@amandaguthrie/panda-preset-framework-simplecss": "workspace:*",
     "@pandacss/dev": "^0.31.0",
     "@pandacss/preset-base": "^0.31.0",
     "@sveltejs/adapter-auto": "^3.1.1",
