@@ -39,9 +39,6 @@
     "dev": "pnpm build-fast --watch",
     "test": "node --import tsx --test test/test.mts"
   },
-  "peerDependencies": {
-    "@pandacss/dev": "0.x"
-  },
   "publishConfig": {
     "access": "public"
   }

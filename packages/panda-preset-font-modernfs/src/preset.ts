@@ -1,6 +1,6 @@
 import { definePreset } from '@pandacss/dev';
 import type { RecursiveToken } from '@pandacss/types';
-import { entries, fromEntries } from '@puffin-ui/shared';
+import { entries, fromEntries } from '@amandaguthrie/panda-preset-shared-utils';
 import { type FontKeyModernFontStack, type FontModernFSPresetOptions, modernFontStackKeyArray } from './types';
 import { modernFontStacksCore } from './modern-font-stacks';
 

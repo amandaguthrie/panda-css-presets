@@ -48,6 +48,6 @@
     "@pandacss/dev": "0.x"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   }
 }
