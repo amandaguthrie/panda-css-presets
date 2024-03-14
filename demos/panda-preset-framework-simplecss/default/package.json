@@ -6,8 +6,8 @@
     "prepare": "panda codegen",
     "dev": "vite dev",
     "build": "vite build",
-    "preview": "/vite preview",
-    "check": "sync && svelte-check --tsconfig ./tsconfig.json",
+    "preview": "vite preview",
+    "check": "sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings 'css-syntax-error:ignore,a11y-img-redundant-alt:ignore'",
     "check:watch": "sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {

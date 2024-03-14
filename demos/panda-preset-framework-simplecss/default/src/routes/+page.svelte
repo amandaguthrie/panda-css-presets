@@ -964,7 +964,7 @@ P R E F O R M A T T E D T E X T
         <header>
           <h2>IFrame</h2>
         </header>
-        <iframe src="#" height="300"></iframe>
+        <iframe src="#" height="300" title="iframe"></iframe>
         <footer>
           <p><a href="#top">[Top]</a></p>
         </footer>
@@ -1090,7 +1090,7 @@ P R E F O R M A T T E D T E X T
           </p>
           <p>
             <label for="select_multiple">Select (multiple)</label>
-            <select id="select_multiple" multiple="multiple">
+            <select id="select_multiple" multiple={true}>
               <optgroup label="Option Group">
                 <option>Option One</option>
                 <option>Option Two</option>
@@ -1110,7 +1110,7 @@ P R E F O R M A T T E D T E X T
                 id="checkbox1"
                 name="checkbox"
                 type="checkbox"
-                checked="checked"
+                checked={true}
               />
                 Choice A</label
               >
@@ -1135,7 +1135,7 @@ P R E F O R M A T T E D T E X T
                 id="checkbox4"
                 name="checkbox"
                 type="checkbox"
-                checked="checked"
+                checked={true}
               />
               <label for="checkbox4">Choice A</label>
             </li>
@@ -1160,7 +1160,7 @@ P R E F O R M A T T E D T E X T
                 id="radio1"
                 name="radio"
                 type="radio"
-                checked="checked"
+                checked={true}
               />
                 Option 1</label
               >
@@ -1185,7 +1185,7 @@ P R E F O R M A T T E D T E X T
                 id="radio4"
                 name="radio"
                 type="radio"
-                checked="checked"
+                checked={true}
               />
               <label for="radio4">Option 1</label>
             </li>
