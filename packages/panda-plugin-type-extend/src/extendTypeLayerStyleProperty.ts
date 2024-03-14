@@ -3,7 +3,7 @@ import { definePlugin } from '@pandacss/dev';
 
 export function extendLayerStylePropertyType(cssVars: CssProperty[]): PandaPlugin {
   return definePlugin({
-    name: 'type-extend-layerStyleProperty',
+    name: 'type-extend-layer-style',
     hooks: {
       'codegen:prepare': (params) => {
         const types = params.artifacts.find((artifact) => artifact.id === 'types-gen');

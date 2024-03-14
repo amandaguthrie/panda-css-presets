@@ -3,7 +3,7 @@ import { definePlugin } from '@pandacss/dev';
 
 export function extendTextStylePropertyType(cssVars: CssProperty[]): PandaPlugin {
   return definePlugin({
-    name: 'type-extend-textStyleProperty',
+    name: 'type-extend-text-style',
     hooks: {
       'codegen:prepare': (params) => {
         const types = params.artifacts.find((artifact) => artifact.id === 'types-gen');
