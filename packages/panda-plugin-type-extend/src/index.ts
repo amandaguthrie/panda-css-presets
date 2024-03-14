@@ -1,2 +1,2 @@
-export * from "./extendTypeLayerStyleProperty";
-export * from "./extendTypeTextStyleProperty";
+export * from './extendTypeLayerStyleProperty';
+export * from './extendTypeTextStyleProperty';
