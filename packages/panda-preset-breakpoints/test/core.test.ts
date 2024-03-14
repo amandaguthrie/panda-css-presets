@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@puffin-ui/shared';
+import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@amandaguthrie/panda-preset-dev-utils';
 import { GENERATE_SNAPSHOTS } from './test-constants';
 import pandaPresetBreakpoints from '../src';
 

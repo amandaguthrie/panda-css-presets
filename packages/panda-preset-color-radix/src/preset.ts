@@ -8,9 +8,8 @@ import {
   type ScaleOneTwelve,
 } from '@puffin-ui/types';
 import { transformColorScale } from '@puffin-ui/utilities-color';
-import { entries, fromEntries } from '@puffin-ui/shared';
+import { entries, fromEntries, parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
 import type { ColorModeConditions, ColorRadixPresetDefaults, ColorRadixPresetOptions, SemanticColorMap } from './types';
-import { parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
 
 const defaultOptions: ColorRadixPresetDefaults = {
   colors: '*',

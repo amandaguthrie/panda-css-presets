@@ -1,7 +1,7 @@
 {
-  "name": "@amandaguthrie/panda-preset-shared-utils",
-  "version": "0.2.0",
-  "description": "Shared utilities for other Panda presets.",
+  "name": "@amandaguthrie/panda-plugin-type-extend",
+  "version": "0.0.0",
+  "description": "A Panda CSS Plugin that allows you to extend types",
   "author": {
     "name": "Amanda Guthrie",
     "url": "https://github.com/amandaguthrie"
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/amandaguthrie/panda-css-presets.git",
-    "directory": "packages/panda-preset-shared-utils"
+    "directory": "packages/panda-plugin-type-extend"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -39,9 +39,6 @@
     "dev": "pnpm build-fast --watch",
     "test": "node --import tsx --test test/test.mts"
   },
-  "dependencies": {
-    "deepmerge-ts": "^5.1.0"
-  },
   "devDependencies": {
     "@amandaguthrie/panda-preset-dev-utils": "workspace:*",
     "@pandacss/dev": "^0.35.0",
@@ -51,6 +48,6 @@
     "@pandacss/dev": "0.x"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted"
   }
 }
