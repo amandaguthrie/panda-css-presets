@@ -6,6 +6,15 @@ and `TextStyleProperty` types.
 The plugin uses the `codegen:prepare` hook to modify the generated `types/composition.d.ts` file before it is written to
 disk.
 
+> [!CAUTION]
+> Currently, Panda CSS generates all CSS properties I've tested for layer and text styles, even those not in the provided types. 
+> 
+>I've reached out to the Panda CSS team on intended functionality since there is a mismatch between which properties can be generated and the types and am awaiting a response.
+> 
+> This plugin aims to extend the Typescript types given by Panda CSS in LayerStyleProperty/TextStyleProperty so they don't give unnecessary Typescript errors in the IDE/during type check.
+> 
+> If in the future Panda CSS enforces which properties are generated in layer/text styles, this plugin does not cover adding the properties to the generator - only to the types.
+
 ## Contents
 
 - [Install](#install)
@@ -15,7 +24,7 @@ disk.
 
 ## Install
 
-Tested with Panda CSS version `0.35.0`.
+Tested with Panda CSS versions `0.35.0` - `0.36.0`.
 
 **npm**
 
