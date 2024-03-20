@@ -50,7 +50,7 @@
     "@puffin-ui/types": "^0.0.1"
   },
   "peerDependencies": {
-    "@pandacss/dev": "0.x"
+    "@pandacss/dev": ">=0.15.4"
   },
   "publishConfig": {
     "access": "public"

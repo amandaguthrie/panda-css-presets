@@ -183,3 +183,5 @@ entries(tokensByCategory).forEach(([category, t]) => {
 
   categoryTables += categoryTable += '\n';
 });
+
+console.log(categoryTables);
