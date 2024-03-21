@@ -55,6 +55,21 @@ importers:
         specifier: ^5.4.3
         version: 5.4.3
 
+  packages/panda-plugin-add-export:
+    devDependencies:
+      '@amandaguthrie/panda-preset-dev-utils':
+        specifier: workspace:*
+        version: link:../panda-preset-dev-utils
+      '@amandaguthrie/panda-preset-shared-utils':
+        specifier: workspace:*
+        version: link:../panda-preset-shared-utils
+      '@pandacss/dev':
+        specifier: ^0.36.0
+        version: 0.36.0(typescript@5.4.3)
+      '@pandacss/types':
+        specifier: ^0.36.0
+        version: 0.36.0
+
   packages/panda-plugin-type-extend:
     devDependencies:
       '@amandaguthrie/panda-preset-dev-utils':
