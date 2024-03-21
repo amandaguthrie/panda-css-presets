@@ -1,6 +1,6 @@
 {
   "name": "@amandaguthrie/panda-plugin-add-export",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Panda CSS Plugin that allows you to add exports to generated files",
   "author": {
     "name": "Amanda Guthrie",

@@ -1,5 +1,17 @@
 # @amandaguthrie/panda-preset-breakpoints
 
+## 0.1.2
+
+### Patch Changes
+
+- [#13](https://github.com/amandaguthrie/panda-css-presets/pull/13) [`c297a67`](https://github.com/amandaguthrie/panda-css-presets/commit/c297a67ab0fa45e69459ab7695a69729ce7fc466) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - <br />
+
+  - Move test library from `@puffin-ui/shared` to `@amandaguthrie/panda-preset-dev-utils`
+  - Update dependencies
+
+- Updated dependencies [[`c297a67`](https://github.com/amandaguthrie/panda-css-presets/commit/c297a67ab0fa45e69459ab7695a69729ce7fc466)]:
+  - @amandaguthrie/panda-preset-shared-utils@0.3.0
+
 ## 0.1.1
 
 ### Patch Changes

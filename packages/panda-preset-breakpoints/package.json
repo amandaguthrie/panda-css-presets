@@ -1,6 +1,6 @@
 {
   "name": "@amandaguthrie/panda-preset-breakpoints",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Panda CSS Preset that generates breakpoints based on popular design systems.",
   "author": {
     "name": "Amanda Guthrie",
