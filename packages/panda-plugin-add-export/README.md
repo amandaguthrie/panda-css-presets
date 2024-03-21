@@ -69,7 +69,7 @@ export default defineConfig({
 ### Function addExports
 
 The function `addExports` is the default export which accepts configuration options and returns a Panda
-plugin.
+plugin. The types for the `pluginOptions` are exproted as `AddExportsPluginOptions`.
 
 #### Parameters
 
@@ -121,13 +121,13 @@ Plugin configuration
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
-import { extendLayerStylePropertyType } from '@amandaguthrie/panda-plugin-type-extend';
+import addExports from '@amandaguthrie/panda-plugin-add-exports';
 
 export default defineConfig({
   // ...
   plugins: [
     // ... Other plugins
-    extendLayerStylePropertyType(['outline', 'outlineColor', 'outlineOffset', 'outlineStyle', 'outlineWidth'])
+    addExports({extendTokens: true, outExtension: "mjs"})
   ],
   // ...
 });
