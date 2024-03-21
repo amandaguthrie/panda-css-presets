@@ -57,8 +57,4 @@ describe('Theme Functions', async () => {
       assert.equal(toJson(maybeExtendTheme(config)), await readJsonSnapshot(testFile));
     });
   });
-})
-
-
-
-
+});

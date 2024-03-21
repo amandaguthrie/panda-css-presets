@@ -25,6 +25,7 @@ export function findFile(artifacts: Artifact[], id: ArtifactId, file: string): A
  */
 export function findFileIndex(artifacts: Artifact[], id: ArtifactId, file: string) {
   const artifactIndex = findArtifactIndex(artifacts, id);
-  const fileIndex = artifactIndex !== undefined ? artifacts[artifactIndex].files.findIndex((f) => f.file === file) : undefined;
+  const fileIndex =
+    artifactIndex !== undefined ? artifacts[artifactIndex].files.findIndex((f) => f.file === file) : undefined;
   return fileIndex === -1 ? undefined : fileIndex;
 }

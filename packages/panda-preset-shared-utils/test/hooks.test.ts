@@ -1,4 +1,4 @@
-import { describe, it, test } from 'node:test';
+import { describe, it } from 'node:test';
 import type { Artifact } from '@pandacss/types';
 import { findArtifactIndex, findFileIndex } from '../src';
 import assert from 'node:assert/strict';

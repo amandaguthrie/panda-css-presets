@@ -47,8 +47,4 @@ describe('Validation Functions', async () => {
       assert.equal(isOnlyWhitespace(undefined), false);
     });
   });
-})
-
-
-
-
+});

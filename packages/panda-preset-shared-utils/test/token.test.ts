@@ -17,6 +17,4 @@ describe('Token Functions', async () => {
       assert.equal(parsePrefix('', ' '), undefined);
     });
   });
-})
-
-
+});
