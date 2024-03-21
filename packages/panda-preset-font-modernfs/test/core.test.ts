@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { readJsonSnapshot, toJson } from '@puffin-ui/shared';
+import { readJsonSnapshot, toJson } from '@amandaguthrie/panda-preset-dev-utils';
 
 describe('Preset', async () => {
   await it('should be the default export', async () => {

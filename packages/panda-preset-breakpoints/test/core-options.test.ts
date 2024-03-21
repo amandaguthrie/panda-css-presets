@@ -1,7 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import pandaPresetBreakpoints, { type BreakpointsPresetOptions, type DesignSystem } from '../src';
-import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@puffin-ui/shared';
+import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@amandaguthrie/panda-preset-dev-utils';
 import { GENERATE_SNAPSHOTS } from './test-constants';
 
 describe('Configuration Options & Preset Generation', async () => {

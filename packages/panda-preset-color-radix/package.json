@@ -39,19 +39,18 @@
     "dev": "pnpm build-fast --watch",
     "test": "node --import tsx --test test/test.mts"
   },
-  "packageManager": "pnpm@8.15.2",
   "dependencies": {
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*",
-    "@puffin-ui/shared": "^0.0.1",
     "@puffin-ui/utilities-color": "^0.0.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.31.0",
-    "@pandacss/types": "^0.31.0",
+    "@amandaguthrie/panda-preset-dev-utils": "workspace:*",
+    "@pandacss/dev": "<1.0.0",
+    "@pandacss/types": "<1.0.0",
     "@puffin-ui/types": "^0.0.1"
   },
   "peerDependencies": {
-    "@pandacss/dev": "0.x"
+    "@pandacss/dev": ">=0.15.4"
   },
   "publishConfig": {
     "access": "public"

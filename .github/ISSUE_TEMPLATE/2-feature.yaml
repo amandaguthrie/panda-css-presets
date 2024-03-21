@@ -17,7 +17,10 @@ body:
       label: Package
       description: Choose the package that you would like to request a feature for.
       options:
+        - A New Plugin
         - A New Preset
+        - panda-plugin-add-export
+        - panda-plugin-type-extend
         - panda-preset-breakpoints
         - panda-preset-color-radix
         - panda-preset-framework-simplecss

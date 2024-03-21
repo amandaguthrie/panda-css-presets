@@ -39,7 +39,6 @@
     "dev": "pnpm build-fast --watch",
     "test": "node --import tsx test/test.mts"
   },
-  "packageManager": "pnpm@8.15.2",
   "publishConfig": {
     "access": "public"
   },
@@ -47,8 +46,7 @@
     "@amandaguthrie/panda-preset-shared-utils": "workspace:*"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.31.0",
-    "@puffin-ui/shared": "^0.0.1"
+    "@pandacss/dev": "<1.0.0"
   },
   "peerDependencies": {
     "@pandacss/dev": ">=0.20.1",

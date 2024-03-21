@@ -1,4 +1,4 @@
-import { entries, fromEntries } from '@puffin-ui/shared';
+import { entries, fromEntries } from '@amandaguthrie/panda-preset-shared-utils';
 
 const tokens = {
   'colors.simplecss.black': {
@@ -183,3 +183,5 @@ entries(tokensByCategory).forEach(([category, t]) => {
 
   categoryTables += categoryTable += '\n';
 });
+
+console.log(categoryTables);

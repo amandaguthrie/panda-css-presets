@@ -4,40 +4,17 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 
 ## Contents
 
-- [Breakpoints Presets](#breakpoints-presets)
-- [Color Presets](#color-presets)
-- [Font Presets](#font-presets)
+- [Plugins](#plugins)
+- [Presets](#presets)
 
 ---
 
-## Breakpoints Presets
+## Plugins
 
-| Preset Link                                                             | Description                                                            |
-|-------------------------------------------------------------------------|------------------------------------------------------------------------|
-| [panda-preset-breakpoints](packages/panda-preset-breakpoints/README.md) | Generates theme breakpoints from popular open source design libraries. |
-
----
-
-[> Back to Contents](#contents)
-
----
-
-## Color Presets
-
-| Preset Link                                                             | Description                                              |
-|-------------------------------------------------------------------------|----------------------------------------------------------|
-| [panda-preset-color-radix](packages/panda-preset-color-radix/README.md) | Generates core and semantic tokens with Radix UI colors. |
-
----
-
-[> Back to Contents](#contents)
-
----
-## Frameworks
-
-| Preset Link                                                                              | Description                                          |
-|------------------------------------------------------------------------------------------|------------------------------------------------------|
-| [panda-preset-framework-simplecss](packages/panda-preset-framework-simplecssx/README.md) | Simple.css for Panda. Configurable colors and fonts. |
+| Hook              | Preset Link                                                             | Description                                                                      |
+|-------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `codegen:prepare` | [panda-plugin-add-exports](packages/panda-plugin-add-exports/README.md) | Export certain local variables, like `tokens` data, during `codegen`.            |
+| `codegen:prepare` | [panda-plugin-type-extend](packages/panda-plugin-type-extend/README.md) | Extend generated types for layer and text styles with additional CSS properties. |
 
 ---
 
@@ -45,11 +22,14 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 
 ---
 
-## Font Presets
+## Presets
 
-| Preset Link                                                                 | Description                                          |
-|-----------------------------------------------------------------------------|------------------------------------------------------|
-| [panda-preset-font-modernfs](packages/panda-preset-font-modernfs/README.md) | Generates core tokens with Modern Font Stacks fonts. |
+| Category    | Preset Link                                                                              | Description                                                            |
+|-------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Breakpoints | [panda-preset-breakpoints](packages/panda-preset-breakpoints/README.md)                  | Generates theme breakpoints from popular open source design libraries. |
+| Color       | [panda-preset-color-radix](packages/panda-preset-color-radix/README.md)                  | Generates core and semantic tokens with Radix UI colors.               |
+| Font        | [panda-preset-font-modernfs](packages/panda-preset-font-modernfs/README.md)              | Generates core tokens with Modern Font Stacks fonts.                   |
+| Framework   | [panda-preset-framework-simplecss](packages/panda-preset-framework-simplecssx/README.md) | Simple.css for Panda. Configurable colors and fonts.                   |
 
 ---
 
