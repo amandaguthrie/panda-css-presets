@@ -37,7 +37,7 @@
     "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
     "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
     "dev": "pnpm build-fast --watch",
-    "test": "node --import tsx --test test/test.mts"
+    "test": "node --import tsx test/test.mts"
   },
   "devDependencies": {
     "@amandaguthrie/panda-preset-dev-utils": "workspace:*",

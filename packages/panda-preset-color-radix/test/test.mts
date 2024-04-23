@@ -4,6 +4,7 @@ import { spec as SpecReporter } from 'node:test/reporters';
 
 const reporter = new SpecReporter();
 const testFiles = await glob('**/*.test.{ts,mts}');
+
 const testStream = run({ files: testFiles });
 
 // Failed tests do not change the exit code, so we configure it here.
