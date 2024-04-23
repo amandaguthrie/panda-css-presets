@@ -1,0 +1,10 @@
+# @amandaguthrie/panda-plugin-type-extend
+
+## 0.1.0
+
+### Minor Changes
+
+- [#13](https://github.com/amandaguthrie/panda-css-presets/pull/13) [`c297a67`](https://github.com/amandaguthrie/panda-css-presets/commit/c297a67ab0fa45e69459ab7695a69729ce7fc466) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - <br />
+
+  - Added `extendLayerStylePropertyType` plugin and documentation
+  - Added `extendTextStylePropertyType` plugin and documentation

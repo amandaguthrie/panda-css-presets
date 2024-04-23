@@ -1,6 +1,6 @@
 {
   "name": "@amandaguthrie/panda-preset-font-modernfs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Panda CSS Preset that generates Modern Font Stacks fonts as core tokens",
   "author": {
     "name": "Amanda Guthrie",

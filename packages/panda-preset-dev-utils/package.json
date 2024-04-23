@@ -1,6 +1,6 @@
 {
   "name": "@amandaguthrie/panda-preset-dev-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Shared dev utilities for Panda presets and plugins.",
   "author": {
     "name": "Amanda Guthrie",

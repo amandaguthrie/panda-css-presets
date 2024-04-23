@@ -1,5 +1,17 @@
 # @amandaguthrie/panda-preset-framework-simplecss
 
+## 0.1.1
+
+### Patch Changes
+
+- [#13](https://github.com/amandaguthrie/panda-css-presets/pull/13) [`c297a67`](https://github.com/amandaguthrie/panda-css-presets/commit/c297a67ab0fa45e69459ab7695a69729ce7fc466) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - <br />
+
+  - Move shared `entries` and `fromEntries` utilities from `@puffin-ui/shared`
+  - Update dependencies
+
+- Updated dependencies [[`c297a67`](https://github.com/amandaguthrie/panda-css-presets/commit/c297a67ab0fa45e69459ab7695a69729ce7fc466)]:
+  - @amandaguthrie/panda-preset-shared-utils@0.3.0
+
 ## 0.1.0
 
 ### Minor Changes
