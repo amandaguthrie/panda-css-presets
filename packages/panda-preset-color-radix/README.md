@@ -187,7 +187,7 @@ const coreTokenStructure = {
             }
           }
         }
-      }, semanticTokens: {}
+      }
     }
   }
 }
@@ -353,8 +353,7 @@ const allColors = {
             }
           }
         }
-      },
-      semanticTokens: {}
+      }
     }
   }
 }
@@ -414,8 +413,7 @@ const someColors = {
             }
           }
         }
-      },
-      semanticTokens: {}
+      }
     }
   }
 }
