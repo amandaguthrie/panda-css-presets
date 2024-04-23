@@ -1,4 +1,4 @@
-import { definePreset } from '@pandacss/dev';
+import { definePreset, type Preset } from '@pandacss/dev';
 import type { Condition, RecursiveToken } from '@pandacss/types';
 import {
   type ColorKeyRadix,
@@ -20,7 +20,7 @@ const defaultOptions: ColorRadixPresetDefaults = {
 };
 
 export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
-  const mergedOptions = Object.assign({}, defaultOptions, options);
+  const mergedOptions = options != undefined ? Object.assign({}, defaultOptions, options) : defaultOptions;
   const { colors, colorModeConditions, coreColorPrefix, semanticColorMap, semanticColorPrefix } = mergedOptions;
 
   // If an array of colors is passed, filter the array to valid Radix color names. If the array has no valid color names, return all Radix colors.
@@ -53,18 +53,20 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
     defaultColorMode: colorModeConditions.default,
   }) as RecursiveToken<string, any>;
 
-  return definePreset({
+  const preset: Preset = {
     theme: {
       extend: {
-        tokens: {
-          colors: coreTokens,
-        },
-        semanticTokens: {
-          colors: semanticTokens,
-        },
+        tokens: { colors: coreTokens },
       },
     },
-  });
+  };
+
+  if (semanticTokens != undefined) {
+    // @ts-ignore This is undefined but we can set it.
+    preset.theme.extend.semanticTokens = { colors: semanticTokens };
+  }
+
+  return definePreset(preset);
 }
 
 /** @desc Generate Radix core color tokens from a list of Radix colors. */
@@ -137,35 +139,40 @@ function generateRadixSemanticTokens({
     return newValue;
   }
 
-  const semanticTokens = fromEntries(
-    entries(semanticColorMap).map(([tokenName, mapDetail]) => {
-      const colorName = mapDetail.color;
+  // If the map has no keys, set to undefined. Otherwise, map to semantic token format.
+  const semanticTokens =
+    Object.keys(semanticColorMap).length > 0
+      ? fromEntries(
+          entries(semanticColorMap).map(([tokenName, mapDetail]) => {
+            const colorName = mapDetail.color;
 
-      const colorValue: RecursiveToken<string, any> = { '1': {} };
+            const colorValue: RecursiveToken<string, any> = { '1': {} };
 
-      const thisDefault = mapDetail.default ?? fallbackDefault;
+            const thisDefault = mapDetail.default ?? fallbackDefault;
 
-      for (let scale = 1; scale <= 12; scale++) {
-        const scaleKey = scale.toString();
-        const base = {
-          base: `{colors.${corePrefixToken}${colorName}.${scaleKey}.${thisDefault}}`,
-        };
-        const lightConditions = forEachCondition(
-          base,
-          conditions.light,
-          `{colors.${corePrefixToken}${colorName}.${scaleKey}.light}`,
-        );
-        const allConditions = forEachCondition(
-          lightConditions,
-          conditions.dark,
-          `{colors.${corePrefixToken}${colorName}.${scaleKey}.dark}`,
-        );
-        colorValue[scaleKey] = { value: allConditions };
-      }
+            for (let scale = 1; scale <= 12; scale++) {
+              const scaleKey = scale.toString();
+              const base = {
+                base: `{colors.${corePrefixToken}${colorName}.${scaleKey}.${thisDefault}}`,
+              };
+              const lightConditions = forEachCondition(
+                base,
+                conditions.light,
+                `{colors.${corePrefixToken}${colorName}.${scaleKey}.light}`,
+              );
+              const allConditions = forEachCondition(
+                lightConditions,
+                conditions.dark,
+                `{colors.${corePrefixToken}${colorName}.${scaleKey}.dark}`,
+              );
+              colorValue[scaleKey] = { value: allConditions };
+            }
 
-      return [tokenName, colorValue];
-    }),
-  );
+            return [tokenName, colorValue];
+          }),
+        )
+      : undefined;
 
-  return semanticPrefix ? { [semanticPrefix]: semanticTokens } : semanticTokens;
+  // If there are semantic tokens, check if there's a prefix set and wrap them. If there's no prefix, return the semantic tokens. Otherwise, return undefined.
+  return semanticTokens ? (semanticPrefix ? { [semanticPrefix]: semanticTokens } : semanticTokens) : undefined;
 }
