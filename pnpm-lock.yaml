@@ -14,7 +14,7 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^1.8.3
+        specifier: 1.8.3
         version: 1.8.3
       '@changesets/changelog-github':
         specifier: ^0.5.0
