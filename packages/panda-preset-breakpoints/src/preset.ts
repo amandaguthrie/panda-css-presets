@@ -19,5 +19,5 @@ export function pandaPresetBreakpoints(options?: BreakpointsPresetOptions) {
 
   const themeContent = { breakpoints: brPts };
 
-  return maybeExtendTheme({ themeContent, extend: mergedOptions.extend }) as Preset;
+  return {name: 'panda-preset-breakpoints', ...maybeExtendTheme({ themeContent, extend: mergedOptions.extend })} as Preset;
 }

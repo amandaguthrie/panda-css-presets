@@ -1,1 +1,1 @@
-{"theme":{"extend":{"tokens":{"fonts":{"modernfs":{"geometricHumanist":{"value":["Avenir","Montserrat","Corbel","'URW Gothic'","source-sans-pro","sans-serif"]}}}}}}}
+{"name":"panda-preset-font-modernfs","theme":{"extend":{"tokens":{"fonts":{"modernfs":{"geometricHumanist":{"value":["Avenir","Montserrat","Corbel","'URW Gothic'","source-sans-pro","sans-serif"]}}}}}}}

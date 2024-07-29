@@ -7,7 +7,7 @@ import { GENERATE_SNAPSHOTS } from './test-constants';
 describe('Configuration Options & Preset Generation', async () => {
   // Default is "primer"
   const defaultConfig =
-    '{"theme":{"extend":{"breakpoints":{"sm":"30em","md":"48em","lg":"62em","xl":"80em","2xl":"96em"}}}}';
+    '{"name":"panda-preset-breakpoints","theme":{"extend":{"breakpoints":{"sm":"30em","md":"48em","lg":"62em","xl":"80em","2xl":"96em"}}}}';
 
   await it('should return the default config if no options are provided', async () => {
     if (GENERATE_SNAPSHOTS) {
@@ -42,7 +42,7 @@ describe('Configuration Options & Preset Generation', async () => {
     if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('options-extend-undefined', JSON.stringify(pandaPresetBreakpoints(config)));
     }
-    assert.match(toJson(pandaPresetBreakpoints()), /{"theme":{"extend":{"breakpoints":/g);
+    assert.match(toJson(pandaPresetBreakpoints()), /{"name":"panda-preset-breakpoints","theme":{"extend":{"breakpoints":/g);
     assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-system-valid'));
     assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-extend-undefined'));
   });
@@ -55,7 +55,7 @@ describe('Configuration Options & Preset Generation', async () => {
     if (GENERATE_SNAPSHOTS) {
       await writeJsonSnapshot('options-extend-false', JSON.stringify(pandaPresetBreakpoints(config)));
     }
-    assert.match(toJson(pandaPresetBreakpoints(config)), /{"theme":{"breakpoints":/g);
+    assert.match(toJson(pandaPresetBreakpoints(config)), /{"name":"panda-preset-breakpoints","theme":{"breakpoints":/g);
     assert.equal(toJson(pandaPresetBreakpoints(config)), await readJsonSnapshot('options-extend-false'));
   });
 });
