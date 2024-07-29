@@ -1,5 +1,5 @@
 import { defineTokens } from '@pandacss/dev';
-import { type FontKeyModernFontStack } from './types';
+import type { FontKeyModernFontStack } from './types';
 
 /**
  * Modern Font Stacks - System font stack CSS organized by typeface classification for every modern operating system

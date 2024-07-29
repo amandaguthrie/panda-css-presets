@@ -20,7 +20,7 @@ const defaultOptions: ColorRadixPresetDefaults = {
 };
 
 export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
-  const mergedOptions = options != undefined ? Object.assign({}, defaultOptions, options) : defaultOptions;
+  const mergedOptions = options != null ? Object.assign({}, defaultOptions, options) : defaultOptions;
   const { colors, colorModeConditions, coreColorPrefix, semanticColorMap, semanticColorPrefix } = mergedOptions;
 
   // If an array of colors is passed, filter the array to valid Radix color names. If the array has no valid color names, return all Radix colors.
@@ -32,13 +32,12 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
   let semanticTokens: RecursiveToken<string, any> | undefined = undefined;
   if (Object.keys(semanticColorMap).length > 0) {
     // If this semantic color wasn't included in the colors array, add it.
-    Object.values(semanticColorMap).forEach(
-      (mapDetail) =>
-        radixAllColorsArray.includes(mapDetail.color) &&
-        Array.isArray(validColors) &&
-        !validColors.includes(mapDetail.color) &&
-        validColors.push(mapDetail.color),
-    );
+    for (const mapDetail of Object.values(semanticColorMap)) {
+      radixAllColorsArray.includes(mapDetail.color) &&
+      Array.isArray(validColors) &&
+      !validColors.includes(mapDetail.color) &&
+      validColors.push(mapDetail.color);
+    }
     semanticTokens = generateRadixSemanticTokens({
       coreColorPrefix,
       semanticColorPrefix,
@@ -61,7 +60,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
     },
   };
 
-  if (semanticTokens != undefined) {
+  if (semanticTokens !== undefined) {
     // @ts-ignore This is undefined but we can set it.
     preset.theme.extend.semanticTokens = { colors: semanticTokens };
   }
@@ -135,7 +134,9 @@ function generateRadixSemanticTokens({
     if (conditions === undefined || conditions.length <= 0) {
       return source;
     }
-    conditions.forEach((condition) => (newValue[condition] = conditionValue));
+    for (const condition of conditions) {
+      newValue[condition] = conditionValue;
+    }
     return newValue;
   }
 

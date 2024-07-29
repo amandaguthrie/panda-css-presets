@@ -5,6 +5,13 @@ on:
     paths:
       - '.changeset/**'
       - 'packages/**'
+      - '.npmrc'
+      - 'biome.json'
+      - 'bunfig.toml'
+      - 'package.json'
+      - 'tsconfig.build.json'
+      - 'tsconfig.json'
+      - 'tsup.config.ts'
     branches:
       - main
 

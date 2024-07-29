@@ -12,9 +12,9 @@ export function extendLayerStylePropertyType(cssVars: CssProperty[]): PandaPlugi
           const codeArray = file?.code?.split('\n\n');
           const layerStylePropertyIndex = codeArray?.findIndex((line) => line.includes('type LayerStyleProperty '));
           if (layerStylePropertyIndex && layerStylePropertyIndex !== -1 && codeArray) {
-            cssVars.forEach((property) => {
+            for (const property of cssVars) {
               codeArray[layerStylePropertyIndex] += `\n  | '${property}'`;
-            });
+            }
           }
           file.code = codeArray?.join('\n\n');
         }
