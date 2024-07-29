@@ -12,9 +12,9 @@ export function extendTextStylePropertyType(cssVars: CssProperty[]): PandaPlugin
           const codeArray = file?.code?.split('\n\n');
           const textStylePropertyIndex = codeArray?.findIndex((line) => line.includes('type TextStyleProperty '));
           if (textStylePropertyIndex && textStylePropertyIndex !== -1 && codeArray) {
-            cssVars.forEach((property) => {
+            for (const property of cssVars) {
               codeArray[textStylePropertyIndex] += `\n  | '${property}'`;
-            });
+            }
           }
           file.code = codeArray?.join('\n\n');
         }

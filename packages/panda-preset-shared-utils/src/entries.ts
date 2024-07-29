@@ -10,8 +10,8 @@ export function entries<K extends RecordKeyDefault, V>(obj: Record<K, V>): [K, V
 
 export function fromEntries<K extends RecordKeyDefault, V>(entries: [K, V][]): Record<K, V> {
   const result: Record<K, V> = {} as Record<K, V>;
-  entries.forEach((entry) => {
+  for (const entry of entries) {
     result[entry[0]] = entry[1];
-  });
+  }
   return result;
 }

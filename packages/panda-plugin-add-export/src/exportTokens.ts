@@ -7,7 +7,7 @@ export function exportTokens(artifacts: Artifact[], options: AddExportsPluginOpt
     const artId = 'design-tokens';
     const artifactIndex = findArtifactIndex(artifacts, artId);
     const jsFileName = `index.${options.outExtension}`;
-    const tsFileName = `index.d.ts`;
+    const tsFileName = 'index.d.ts';
     const jsFile = findFile(artifacts, artId, jsFileName);
     const jsFileIndex = findFileIndex(artifacts, artId, jsFileName);
     const tsFile = findFile(artifacts, artId, tsFileName);

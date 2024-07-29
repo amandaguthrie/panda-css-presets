@@ -1,4 +1,4 @@
-import { type ExtendableOptions, type ExtendableTheme } from '@pandacss/types';
+import type { ExtendableOptions, ExtendableTheme } from '@pandacss/types';
 
 export type ExtendableOptionsTheme = Required<Exclude<Pick<ExtendableOptions, 'theme'>, undefined>>;
 

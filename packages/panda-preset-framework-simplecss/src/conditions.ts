@@ -1,4 +1,4 @@
-import { type Preset } from '@pandacss/dev';
+import type { Preset } from '@pandacss/dev';
 
 export const conditions = (prefix: string): Preset['conditions'] => {
   return {

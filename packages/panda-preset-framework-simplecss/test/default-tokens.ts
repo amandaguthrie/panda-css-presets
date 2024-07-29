@@ -144,7 +144,7 @@ const defaultTokens = fromEntries(
   entries(tokens).map(([token, detail]) => [
     token,
     {
-      value: detail.value.startsWith(`var(`)
+      value: detail.value.startsWith('var(')
         ? detail.value.slice(6, detail.value.length - 1).replace(/-/g, '.')
         : detail.value,
       variable: detail.variable,
@@ -159,7 +159,7 @@ const tokensByCategory: Record<string, Record<string, Record<string, string>>> =
   radii: {},
 };
 
-entries(defaultTokens).forEach(([token, variable]) => {
+for (const [token, variable] of entries(defaultTokens)) {
   const category = token.split('.')[0];
   if (category && category in tokensByCategory) {
     const tokensByCatCat = tokensByCategory[category];
@@ -167,21 +167,18 @@ entries(defaultTokens).forEach(([token, variable]) => {
       tokensByCatCat[token] = variable;
     }
   }
-});
+}
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let categoryTables = '';
 
-entries(tokensByCategory).forEach(([category, t]) => {
+for (const [category, t] of entries(tokensByCategory)) {
   let categoryTable = `### ${category.slice(0, 1).toUpperCase() + category.slice(1)}\n| Token | Type | CSS Variable | Value |\n| ----- | ------------ | --- | --- |\n`;
-  entries(t)
-    .sort()
-    .forEach(
-      ([t, detail]) =>
-        (categoryTable += `| \`${t}\` | \`${detail.type}\`| \`${detail.variable}\` | \`${detail.value}\`|\n`),
-    );
+  for (const [t1, detail] of entries(t)
+    .sort()) {
+    categoryTable += `| \`${t1}\` | \`${detail.type}\`| \`${detail.variable}\` | \`${detail.value}\`|\n`;
+  }
 
   categoryTables += categoryTable += '\n';
-});
+}
 
 console.log(categoryTables);
