@@ -1,5 +1,16 @@
 # @amandaguthrie/panda-preset-shared-utils
 
+## 0.4.0
+
+### Minor Changes
+
+- [#20](https://github.com/amandaguthrie/panda-css-presets/pull/20) [`0153d74`](https://github.com/amandaguthrie/panda-css-presets/commit/0153d74560bd9d6138ae8544749dbfc8a3298e4f) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - Minimum @pandacss/types of 0.44.0
+
+### Patch Changes
+
+- [#18](https://github.com/amandaguthrie/panda-css-presets/pull/18) [`69d7ddf`](https://github.com/amandaguthrie/panda-css-presets/commit/69d7ddf14e6f9af11a141b42ad4e144383e1ecb9) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - Migrate from ESLint/Prettier to Biome.
+  Change .forEach to for ... of loops and switch from != undefined to != null or !== undefined.
+
 ## 0.3.0
 
 ### Minor Changes

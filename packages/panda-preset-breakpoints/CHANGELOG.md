@@ -1,5 +1,17 @@
 # @amandaguthrie/panda-preset-breakpoints
 
+## 0.2.0
+
+### Minor Changes
+
+- [#20](https://github.com/amandaguthrie/panda-css-presets/pull/20) [`0153d74`](https://github.com/amandaguthrie/panda-css-presets/commit/0153d74560bd9d6138ae8544749dbfc8a3298e4f) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - \* Add name property to preset for Panda CSS v0.44.0 compatibility
+  - Adapt tests, re-run test snapshots
+
+### Patch Changes
+
+- Updated dependencies [[`0153d74`](https://github.com/amandaguthrie/panda-css-presets/commit/0153d74560bd9d6138ae8544749dbfc8a3298e4f), [`69d7ddf`](https://github.com/amandaguthrie/panda-css-presets/commit/69d7ddf14e6f9af11a141b42ad4e144383e1ecb9)]:
+  - @amandaguthrie/panda-preset-shared-utils@0.4.0
+
 ## 0.1.2
 
 ### Patch Changes
