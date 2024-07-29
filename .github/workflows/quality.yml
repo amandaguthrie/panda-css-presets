@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   prettier:
-    name: Prettier
+    name: Biome
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
