@@ -53,6 +53,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
   }) as RecursiveToken<string, any>;
 
   const preset: Preset = {
+    name: 'panda-preset-color-radix',
     theme: {
       extend: {
         tokens: { colors: coreTokens },

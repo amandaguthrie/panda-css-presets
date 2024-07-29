@@ -65,6 +65,7 @@ export const pandaPresetFrameworkSimpleCss = (options?: Partial<SimpleCssPresetO
   const prefix = parsePrefix(options?.prefix ?? '', defaultOptions.prefix) ?? defaultOptions.prefix;
 
   return definePreset({
+    name: 'panda-preset-framework-simplecss',
     theme: {
       extend: {
         tokens: {
