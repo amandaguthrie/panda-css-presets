@@ -11,9 +11,9 @@ A collection of [Panda CSS][panda-github] [presets][panda-docs-presets].
 
 ## Plugins
 
-| Hook              | Preset Link                                                             | Description                                                                      |
-|-------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| `codegen:prepare` | [panda-plugin-add-exports](packages/panda-plugin-add-exports/README.md) | Export certain local variables, like `tokens` data, during `codegen`.            |
+| Hook              | Preset Link                                                           | Description                                                                      |
+|-------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `codegen:prepare` | [panda-plugin-add-export](packages/panda-plugin-add-export/README.md) | Export certain local variables, like `tokens` data, during `codegen`.            |
 | `codegen:prepare` | [panda-plugin-type-extend](packages/panda-plugin-type-extend/README.md) | Extend generated types for layer and text styles with additional CSS properties. |
 
 ---
