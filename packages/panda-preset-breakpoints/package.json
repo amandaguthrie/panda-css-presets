@@ -11,6 +11,7 @@
     "url": "https://github.com/amandaguthrie/panda-css-presets.git",
     "directory": "packages/panda-preset-breakpoints"
   },
+  "keywords": ["pandacss", "panda-css", "panda-preset", "pandacss-preset", "panda-css-preset", "radix", "radix-colors"],
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
