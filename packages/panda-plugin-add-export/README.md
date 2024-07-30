@@ -1,4 +1,4 @@
-# @amandaguthrie/panda-plugin-add-exports
+# @amandaguthrie/panda-plugin-add-export
 
 A [Panda CSS][panda-github] [plugin][panda-docs-plugins] that allows you to change internal structures, like `tokens` into exports.
 
@@ -54,7 +54,7 @@ In your `panda.config.{ts,js}` file, import the plugin and include it in your pl
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
-import { addExports } from '@amandaguthrie/panda-plugin-add-exports';
+import { addExports } from '@amandaguthrie/panda-plugin-add-export';
 
 export default defineConfig({
   // ...
@@ -121,7 +121,7 @@ Plugin configuration
 
 ```typescript
 import { defineConfig } from '@pandacss/dev';
-import addExports from '@amandaguthrie/panda-plugin-add-exports';
+import addExports from '@amandaguthrie/panda-plugin-add-export';
 
 export default defineConfig({
   // ...
