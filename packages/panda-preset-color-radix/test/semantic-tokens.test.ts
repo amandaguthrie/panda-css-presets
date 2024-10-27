@@ -126,7 +126,7 @@ describe('Semantic Token Configuration & Generation', () => {
     }
     assert.match(
       toJson(pandaPresetColorRadix(config)),
-      /"semanticTokens":{"colors":{"primary":{"1":{"value":{"base":"{colors.radix.grass.1.dark}",/g,
+      /"semanticTokens":{"colors":{"primary":{"0":{"value":{"base":"{colors.radix.grass.0.dark}",/g,
     );
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('semantic-prefix-blank-custom'));
   });

@@ -47,6 +47,18 @@ export type SemanticColorMap = Record<
   }
 >;
 
+export type ConstrastColorOverride = {
+  /**
+   * @description (Optional) Override the default light text contrast value for color scale 9-12 generated at scale value '9c'. Also used in scale value 0 and 13.
+   * - Default: 'white'
+   */
+  white: string;
+  /**
+   * @description (Optional) Override the default light text contrast value for color scale 9-12 generated at scale value '9c' for amber, yellow, lime, mint, and sky. Also used in scale value 0 and 13.
+   * - Default: 'black'
+   */
+  black: string;
+}
 /**
  * @type ColorRadixPresetDefaults
  */
@@ -84,6 +96,11 @@ export type ColorRadixPresetDefaults = {
    * @see {@link SemanticColorMap} for more information on the individual properties.
    */
   semanticColorMap: SemanticColorMap;
+  /**
+   * @description (Optional) Override the default light and dark colors for Radix color scale 9.
+   * @see {@link ConstrastColorOverride} for more information on the individual properties.
+   */
+  contrastColorOverride: ConstrastColorOverride;
 };
 
 /**

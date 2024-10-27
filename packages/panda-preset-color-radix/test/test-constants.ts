@@ -1,1 +1,1 @@
-export const GENERATE_SNAPSHOTS = false;
+export const GENERATE_SNAPSHOTS = true;

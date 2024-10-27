@@ -76,4 +76,52 @@ describe('Core Token Configuration & Generation', async () => {
     assert.match(toJson(pandaPresetColorRadix(config)), /"tokens":{"colors":{"grass":/g);
     assert.equal(toJson(pandaPresetColorRadix(config)), await readJsonSnapshot('colors-core-prefix-blank-custom'));
   });
+  await it('should use the white value as 9c for any color other than amber, yellow, mint, lime, and sky', async () => {
+    const config: ColorRadixPresetOptions = {
+      colors: ['indigo'],
+    }
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('colors-core-uses-correct-light-value-for-dark-colors', toJson(pandaPresetColorRadix(config)));
+    }
+
+    assert.match(toJson(pandaPresetColorRadix(config)), /"9c":{"DEFAULT":{"value":"white"},"light":{"value":"white"},"dark":{"value":"white"}}}/g);
+  })
+  await it('should use the white custom value as 9c for any color other than amber, yellow, mint, lime, and sky', async () => {
+    const config: ColorRadixPresetOptions = {
+      colors: ['indigo'],
+      nineContrastColors: {
+        black: '#000001',
+        white: "#FFFFFE"
+      }
+    }
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('colors-core-uses-correct-light-value-for-dark-colors-custom', toJson(pandaPresetColorRadix(config)));
+    }
+
+    assert.match(toJson(pandaPresetColorRadix(config)), /"9c":{"DEFAULT":{"value":"#FFFFFE"},"light":{"value":"#FFFFFE"},"dark":{"value":"#FFFFFE"}}}/g);
+  })
+  await it('should use the black value as 9c for amber, yellow, mint, lime, and sky', async () => {
+    const config: ColorRadixPresetOptions = {
+      colors: ['sky'],
+    }
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('colors-core-uses-correct-dark-value-for-light-colors', toJson(pandaPresetColorRadix(config)));
+    }
+
+    assert.match(toJson(pandaPresetColorRadix(config)), /"sky":{"0":{"DEFAULT":{"value":"black"},"light":{"value":"black"},"dark":{"value":"white"}},"1":{"DEFAULT":{"value":"#0d141f"},"light":{"value":"#f9feff"},"dark":{"value":"#0d141f"}},"2":{"DEFAULT":{"value":"#111a27"},"light":{"value":"#f1fafd"},"dark":{"value":"#111a27"}},"3":{"DEFAULT":{"value":"#112840"},"light":{"value":"#e1f6fd"},"dark":{"value":"#112840"}},"4":{"DEFAULT":{"value":"#113555"},"light":{"value":"#d1f0fa"},"dark":{"value":"#113555"}},"5":{"DEFAULT":{"value":"#154467"},"light":{"value":"#bee7f5"},"dark":{"value":"#154467"}},"6":{"DEFAULT":{"value":"#1b537b"},"light":{"value":"#a9daed"},"dark":{"value":"#1b537b"}},"7":{"DEFAULT":{"value":"#1f6692"},"light":{"value":"#8dcae3"},"dark":{"value":"#1f6692"}},"8":{"DEFAULT":{"value":"#197cae"},"light":{"value":"#60b3d7"},"dark":{"value":"#197cae"}},"9":{"DEFAULT":{"value":"#7ce2fe"},"light":{"value":"#7ce2fe"},"dark":{"value":"#7ce2fe"}},"10":{"DEFAULT":{"value":"#a8eeff"},"light":{"value":"#74daf8"},"dark":{"value":"#a8eeff"}},"11":{"DEFAULT":{"value":"#75c7f0"},"light":{"value":"#00749e"},"dark":{"value":"#75c7f0"}},"12":{"DEFAULT":{"value":"#c2f3ff"},"light":{"value":"#1d3e56"},"dark":{"value":"#c2f3ff"}},"13":{"DEFAULT":{"value":"white"},"light":{"value":"white"},"dark":{"value":"black"}},"9c":{"DEFAULT":{"value":"black"},"light":{"value":"black"},"dark":{"value":"black"}}}/g);
+  })
+  await it('should use the black custom value as 9c for amber, yellow, mint, lime, and sky', async () => {
+    const config: ColorRadixPresetOptions = {
+      colors: ['sky'],
+      nineContrastColors: {
+        black: '#000001',
+        white: "#FFFFFE"
+      }
+    }
+    if (GENERATE_SNAPSHOTS) {
+      await writeJsonSnapshot('colors-core-uses-correct-dark-value-for-light-colors-custom', toJson(pandaPresetColorRadix(config)));
+    }
+
+    assert.match(toJson(pandaPresetColorRadix(config)), /"9c":{"DEFAULT":{"value":"#000001"},"light":{"value":"#000001"},"dark":{"value":"#000001"}}}/g);
+  })
 });
