@@ -1,6 +1,6 @@
 {
 	"name": "@amandaguthrie/panda-preset-color-radix",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "A Panda CSS Preset that generates Radix UI Colors as core and semantic tokens",
 	"author": {
 		"name": "Amanda Guthrie",
@@ -11,7 +11,15 @@
 		"url": "https://github.com/amandaguthrie/panda-css-presets.git",
 		"directory": "packages/panda-preset-color-radix"
 	},
-	"keywords": ["pandacss", "panda-css", "panda-preset", "pandacss-preset", "panda-css-preset", "radix", "radix-colors"],
+	"keywords": [
+		"pandacss",
+		"panda-css",
+		"panda-preset",
+		"pandacss-preset",
+		"panda-css-preset",
+		"radix",
+		"radix-colors"
+	],
 	"license": "MIT",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
@@ -30,7 +38,9 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"side-effects": false,
 	"scripts": {
 		"build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
