@@ -5,8 +5,8 @@ import type { Artifact, ArtifactContent, ArtifactId } from '@pandacss/types';
  * @summary Returns a positive integer if the artifact is found, otherwise returns `undefined`.
  */
 export function findArtifactIndex(artifacts: Artifact[], id: ArtifactId) {
-  const artifactIndex = artifacts.findIndex((artifact) => artifact.id === id);
-  return artifactIndex === -1 ? undefined : artifactIndex;
+	const artifactIndex = artifacts.findIndex((artifact) => artifact.id === id);
+	return artifactIndex === -1 ? undefined : artifactIndex;
 }
 
 /**
@@ -14,9 +14,9 @@ export function findArtifactIndex(artifacts: Artifact[], id: ArtifactId) {
  * @summary Returns `ArtifactContent` if the file is found, otherwise returns `undefined`.
  */
 export function findFile(artifacts: Artifact[], id: ArtifactId, file: string): ArtifactContent | undefined {
-  const artifactIndex = findArtifactIndex(artifacts, id);
-  const fileContent = artifactIndex ? artifacts[artifactIndex].files.find((f) => f.file === file) : undefined;
-  return fileContent ?? undefined;
+	const artifactIndex = findArtifactIndex(artifacts, id);
+	const fileContent = artifactIndex ? artifacts[artifactIndex].files.find((f) => f.file === file) : undefined;
+	return fileContent ?? undefined;
 }
 
 /**
@@ -24,8 +24,8 @@ export function findFile(artifacts: Artifact[], id: ArtifactId, file: string): A
  * @summary Returns a positive integer if the file is found in the artifact's `files` array, otherwise returns `undefined`.
  */
 export function findFileIndex(artifacts: Artifact[], id: ArtifactId, file: string) {
-  const artifactIndex = findArtifactIndex(artifacts, id);
-  const fileIndex =
-    artifactIndex !== undefined ? artifacts[artifactIndex].files.findIndex((f) => f.file === file) : undefined;
-  return fileIndex === -1 ? undefined : fileIndex;
+	const artifactIndex = findArtifactIndex(artifacts, id);
+	const fileIndex =
+		artifactIndex !== undefined ? artifacts[artifactIndex].files.findIndex((f) => f.file === file) : undefined;
+	return fileIndex === -1 ? undefined : fileIndex;
 }
