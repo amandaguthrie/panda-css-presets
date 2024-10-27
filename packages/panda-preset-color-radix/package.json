@@ -1,59 +1,57 @@
 {
-  "name": "@amandaguthrie/panda-preset-color-radix",
-  "version": "0.3.0",
-  "description": "A Panda CSS Preset that generates Radix UI Colors as core and semantic tokens",
-  "author": {
-    "name": "Amanda Guthrie",
-    "url": "https://github.com/amandaguthrie"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/amandaguthrie/panda-css-presets.git",
-    "directory": "packages/panda-preset-color-radix"
-  },
-  "keywords": ["pandacss", "panda-css", "panda-preset", "pandacss-preset", "panda-css-preset", "radix", "radix-colors"],
-  "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "svelte": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "source": "./src/index.ts",
-      "svelte": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    },
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist"
-  ],
-  "side-effects": false,
-  "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
-    "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
-    "dev": "pnpm build-fast --watch",
-    "test": "node --import tsx test/test.mts"
-  },
-  "dependencies": {
-    "@amandaguthrie/panda-preset-shared-utils": "workspace:*",
-    "@puffin-ui/utilities-color": "^0.0.1"
-  },
-  "devDependencies": {
-    "@amandaguthrie/panda-preset-dev-utils": "workspace:*",
-    "@pandacss/dev": "<1.0.0",
-    "@pandacss/types": "<1.0.0",
-    "@puffin-ui/types": "^0.0.1"
-  },
-  "peerDependencies": {
-    "@pandacss/dev": ">=0.15.4"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@amandaguthrie/panda-preset-color-radix",
+	"version": "0.3.0",
+	"description": "A Panda CSS Preset that generates Radix UI Colors as core and semantic tokens",
+	"author": {
+		"name": "Amanda Guthrie",
+		"url": "https://github.com/amandaguthrie"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/amandaguthrie/panda-css-presets.git",
+		"directory": "packages/panda-preset-color-radix"
+	},
+	"keywords": ["pandacss", "panda-css", "panda-preset", "pandacss-preset", "panda-css-preset", "radix", "radix-colors"],
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"svelte": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.js",
+			"source": "./src/index.ts",
+			"svelte": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"files": ["dist"],
+	"side-effects": false,
+	"scripts": {
+		"build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
+		"build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
+		"dev": "pnpm build-fast --watch",
+		"test": "node --import tsx test/test.mts"
+	},
+	"dependencies": {
+		"@amandaguthrie/panda-preset-shared-utils": "workspace:*",
+		"@puffin-ui/utilities-color": "^0.0.1"
+	},
+	"devDependencies": {
+		"@amandaguthrie/panda-preset-dev-utils": "workspace:*",
+		"@pandacss/dev": "<1.0.0",
+		"@pandacss/types": "<1.0.0",
+		"@puffin-ui/types": "^0.0.1"
+	},
+	"peerDependencies": {
+		"@pandacss/dev": ">=0.15.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

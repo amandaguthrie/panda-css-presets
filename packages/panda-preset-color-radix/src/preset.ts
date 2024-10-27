@@ -1,20 +1,20 @@
-import { definePreset, type Preset } from '@pandacss/dev';
+import { entries, fromEntries, parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
+import { type Preset, definePreset } from '@pandacss/dev';
 import type { Condition, RecursiveToken } from '@pandacss/types';
 import {
 	type ColorKeyRadix,
 	type ColorMode,
 	type ColorModeMapPartialKeys,
-	radixAllColorsArray,
 	type ScaleOneTwelve,
+	radixAllColorsArray,
 } from '@puffin-ui/types';
 import { transformColorScale } from '@puffin-ui/utilities-color';
-import { entries, fromEntries, parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
 import type {
-  ColorModeConditions,
-  ColorRadixPresetDefaults,
-  ColorRadixPresetOptions,
-  ConstrastColorOverride,
-  SemanticColorMap,
+	ColorModeConditions,
+	ColorRadixPresetDefaults,
+	ColorRadixPresetOptions,
+	ContrastColorOverrides,
+	SemanticColorMap,
 } from './types';
 
 const defaultOptions: ColorRadixPresetDefaults = {
@@ -23,15 +23,22 @@ const defaultOptions: ColorRadixPresetDefaults = {
 	coreColorPrefix: 'radix',
 	semanticColorPrefix: 'radix',
 	semanticColorMap: {},
-  contrastColorOverride: {
-    white: 'white',
-    black: 'black'
-  }
+	contrastColorOverrides: {
+		white: '#ffffff',
+		black: '#000000',
+	},
 };
 
 export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
 	const mergedOptions = options != null ? Object.assign({}, defaultOptions, options) : defaultOptions;
-	const { colors, colorModeConditions, coreColorPrefix, contrastColorOverride, semanticColorMap, semanticColorPrefix } = mergedOptions;
+	const {
+		colors,
+		colorModeConditions,
+		coreColorPrefix,
+		contrastColorOverrides,
+		semanticColorMap,
+		semanticColorPrefix,
+	} = mergedOptions;
 
 	// If an array of colors is passed, filter the array to valid Radix color names. If the array has no valid color names, return all Radix colors.
 	const validColors = Array.isArray(colors)
@@ -60,7 +67,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
 		colors: radixColors,
 		coreColorPrefix,
 		defaultColorMode: colorModeConditions.default,
-    contrastColorOverride,
+		contrastColorOverrides,
 	}) as RecursiveToken<string, any>;
 
 	const preset: Preset = {
@@ -85,12 +92,12 @@ function generateRadixCoreColorTokens({
 	colors,
 	coreColorPrefix,
 	defaultColorMode,
-  contrastColorOverride,
+	contrastColorOverrides,
 }: {
 	colors: ColorModeMapPartialKeys<ColorKeyRadix, ScaleOneTwelve>;
 	coreColorPrefix: string;
 	defaultColorMode: ColorMode;
-  contrastColorOverride: ConstrastColorOverride;
+	contrastColorOverrides: ContrastColorOverrides;
 }) {
 	const { light, dark } = colors;
 
@@ -112,15 +119,22 @@ function generateRadixCoreColorTokens({
 					return [scaleKey, scaleConditions];
 				}),
 			);
-			const zeroValue = defaultColorMode === 'light' ? contrastColorOverride.white : contrastColorOverride.black;
-			const oppositeZeroValue = defaultColorMode === 'light' ? contrastColorOverride.black : contrastColorOverride.white;
-			const contrastValue = ['amber', 'yellow', 'lime', 'mint', 'sky'].includes(colorName) ? contrastColorOverride.black : contrastColorOverride.white;
+			const zeroValue = defaultColorMode === 'light' ? contrastColorOverrides.white : contrastColorOverrides.black;
+			const oppositeZeroValue =
+				defaultColorMode === 'light' ? contrastColorOverrides.black : contrastColorOverrides.white;
+			const contrastValue = ['amber', 'yellow', 'lime', 'mint', 'sky'].includes(colorName)
+				? contrastColorOverrides.black
+				: contrastColorOverrides.white;
 			return [
 				colorName,
 				{
 					0: { DEFAULT: { value: zeroValue }, light: { value: zeroValue }, dark: { value: oppositeZeroValue } },
 					...scaleMap,
-					13: { DEFAULT: { value: oppositeZeroValue }, light: { value: oppositeZeroValue }, dark: { value: zeroValue }, },
+					13: {
+						DEFAULT: { value: oppositeZeroValue },
+						light: { value: oppositeZeroValue },
+						dark: { value: zeroValue },
+					},
 					'9c': {
 						DEFAULT: { value: contrastValue },
 						light: { value: contrastValue },
