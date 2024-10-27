@@ -1,8 +1,8 @@
+import { entries, fromEntries } from '@amandaguthrie/panda-preset-shared-utils';
 import { definePreset } from '@pandacss/dev';
 import type { RecursiveToken } from '@pandacss/types';
-import { entries, fromEntries } from '@amandaguthrie/panda-preset-shared-utils';
-import { type FontKeyModernFontStack, type FontModernFSPresetOptions, modernFontStackKeyArray } from './types';
 import { modernFontStacksCore } from './modern-font-stacks';
+import { type FontKeyModernFontStack, type FontModernFSPresetOptions, modernFontStackKeyArray } from './types';
 
 const defaultOptions = {
 	fonts: '*',

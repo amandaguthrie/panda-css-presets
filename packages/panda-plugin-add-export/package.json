@@ -1,53 +1,51 @@
 {
-  "name": "@amandaguthrie/panda-plugin-add-export",
-  "version": "0.1.1",
-  "description": "A Panda CSS Plugin that allows you to add exports to generated files",
-  "author": {
-    "name": "Amanda Guthrie",
-    "url": "https://github.com/amandaguthrie"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/amandaguthrie/panda-css-presets.git",
-    "directory": "packages/panda-plugin-add-export"
-  },
-  "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "svelte": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "source": "./src/index.ts",
-      "svelte": "./dist/index.js",
-      "types": "./dist/index.d.ts",
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    },
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist"
-  ],
-  "side-effects": false,
-  "scripts": {
-    "build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
-    "build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
-    "dev": "pnpm build-fast --watch"
-  },
-  "devDependencies": {
-    "@amandaguthrie/panda-preset-dev-utils": "workspace:*",
-    "@amandaguthrie/panda-preset-shared-utils": "workspace:*",
-    "@pandacss/dev": "<1.0.0",
-    "@pandacss/types": "<1.0.0"
-  },
-  "peerDependencies": {
-    "@pandacss/dev": ">=0.32.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@amandaguthrie/panda-plugin-add-export",
+	"version": "0.1.1",
+	"description": "A Panda CSS Plugin that allows you to add exports to generated files",
+	"author": {
+		"name": "Amanda Guthrie",
+		"url": "https://github.com/amandaguthrie"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/amandaguthrie/panda-css-presets.git",
+		"directory": "packages/panda-plugin-add-export"
+	},
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"svelte": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/index.js",
+			"source": "./src/index.ts",
+			"svelte": "./dist/index.js",
+			"types": "./dist/index.d.ts",
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			}
+		},
+		"./package.json": "./package.json"
+	},
+	"files": ["dist"],
+	"side-effects": false,
+	"scripts": {
+		"build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
+		"build-fast": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --no-dts",
+		"dev": "pnpm build-fast --watch"
+	},
+	"devDependencies": {
+		"@amandaguthrie/panda-preset-dev-utils": "workspace:*",
+		"@amandaguthrie/panda-preset-shared-utils": "workspace:*",
+		"@pandacss/dev": "<1.0.0",
+		"@pandacss/types": "<1.0.0"
+	},
+	"peerDependencies": {
+		"@pandacss/dev": ">=0.32.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

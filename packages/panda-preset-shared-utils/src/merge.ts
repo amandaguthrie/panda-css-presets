@@ -5,6 +5,6 @@ export type * from 'deepmerge-ts';
 export { deepmerge } from 'deepmerge-ts';
 
 export const deepMergeConfigOptions = deepmergeCustom({
-  enableImplicitDefaultMerging: true,
-  mergeArrays: false,
+	enableImplicitDefaultMerging: true,
+	mergeArrays: false,
 });
