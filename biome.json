@@ -1,7 +1,7 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"files": {
-		"ignore": ["build", "dist", "node_modules", "**/*.md", "pnpm-lock.yaml", "styled-system"]
+		"ignore": ["build", "dist", "node_modules", "**/*.md", "pnpm-lock.yaml", "styled-system", "snapshots"]
 	},
 	"organizeImports": {
 		"enabled": true

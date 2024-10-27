@@ -129,6 +129,12 @@ The parameters for the default export options are exported as type `ColorRadixPr
             - Whether the `base` value should use the Radix dark or light color mode.
             - Options: `"light" | "dark"`
             - Default: `colorModeConditions.default` ?? `"dark"`
+- `contrastColorOverrides` (`ContrastColorOverrides`, _Optional_)
+  - If overrides are included, all the properties below should be included.
+  - `black` (`string`)
+    - The color or color token to replace the default value of `black` for 0, 9c, and 13 scale values. It should have adequate contrast for accessibility with scale values 9-12 as a background color for colors amber, yellow, mint, lime, and sky.
+  - `white` (`string`)
+    - The color or color token to replace the default value of `white` for 0, 9c, and 13 scale values. It should have adequate contrast for accessibility with scale values 9-12 as a background color for colors other than amber, yellow, mint, lime, and sky.
 
 #### Return
 
@@ -157,6 +163,7 @@ const coreTokenStructure = {
         colors: {
           radix: {
             gray: {
+              "0": { DEFAULT: { value: "#000000"}, light: { value: "#ffffff" }, dark: { value: "#000000" } },
               "1": { DEFAULT: { value: "#111111" }, light: { value: "#fcfcfc" }, dark: { value: "#111111" } },
               "2": { DEFAULT: { value: "#191919" }, light: { value: "#f9f9f9" }, dark: { value: "#191919" } },
               "3": { DEFAULT: { value: "#222222" }, light: { value: "#f0f0f0" }, dark: { value: "#222222" } },
@@ -166,12 +173,15 @@ const coreTokenStructure = {
               "7": { DEFAULT: { value: "#484848" }, light: { value: "#cecece" }, dark: { value: "#484848" } },
               "8": { DEFAULT: { value: "#606060" }, light: { value: "#bbbbbb" }, dark: { value: "#606060" } },
               "9": { DEFAULT: { value: "#6e6e6e" }, light: { value: "#8d8d8d" }, dark: { value: "#6e6e6e" } },
+              "9c": { DEFAULT: { value: "#ffffff"}, light: {value: "#ffffff" }, dark: { value : "#ffffff" } },
               "10": { DEFAULT: { value: "#7b7b7b" }, light: { value: "#838383" }, dark: { value: "#7b7b7b" } },
               "11": { DEFAULT: { value: "#b4b4b4" }, light: { value: "#646464" }, dark: { value: "#b4b4b4" } },
-              "12": { DEFAULT: { value: "#eeeeee" }, light: { value: "#202020" }, dark: { value: "#eeeeee" } }
+              "12": { DEFAULT: { value: "#eeeeee" }, light: { value: "#202020" }, dark: { value: "#eeeeee" } },
+              "13": { DEFAULT: { value: "#ffffff"}, light: { value: "#000000" }, dark: { value: "#ffffff" } },
             },
             // ... Other Colors
             orange: {
+              "0": { DEFAULT: { value: "#000000"}, light: { value: "#ffffff" }, dark: { value: "#000000" } },
               "1": { DEFAULT: { value: "#17120e" }, light: { value: "#fefcfb" }, dark: { value: "#17120e" } },
               "2": { DEFAULT: { value: "#1e160f" }, light: { value: "#fff7ed" }, dark: { value: "#1e160f" } },
               "3": { DEFAULT: { value: "#331e0b" }, light: { value: "#ffefd6" }, dark: { value: "#331e0b" } },
@@ -181,9 +191,11 @@ const coreTokenStructure = {
               "7": { DEFAULT: { value: "#7e451d" }, light: { value: "#f5ae73" }, dark: { value: "#7e451d" } },
               "8": { DEFAULT: { value: "#a35829" }, light: { value: "#ec9455" }, dark: { value: "#a35829" } },
               "9": { DEFAULT: { value: "#f76b15" }, light: { value: "#f76b15" }, dark: { value: "#f76b15" } },
+              "9c": { DEFAULT: { value: "#ffffff"}, light: {value: "#ffffff" }, dark: { value : "#ffffff" } },
               "10": { DEFAULT: { value: "#ff801f" }, light: { value: "#ef5f00" }, dark: { value: "#ff801f" } },
               "11": { DEFAULT: { value: "#ffa057" }, light: { value: "#cc4e00" }, dark: { value: "#ffa057" } },
-              "12": { DEFAULT: { value: "#ffe0c2" }, light: { value: "#582d1d" }, dark: { value: "#ffe0c2" } }
+              "12": { DEFAULT: { value: "#ffe0c2" }, light: { value: "#582d1d" }, dark: { value: "#ffe0c2" } },
+              "13": { DEFAULT: { value: "#ffffff"}, light: { value: "#000000" }, dark: { value: "#ffffff" } },
             }
           }
         }
@@ -215,9 +227,9 @@ const semanticTokenStructure = {
         colors: {
           radix: {
             grass: {
-              "1": { "DEFAULT": { value: "#0e1511" }, light: { value: "#fbfefb" }, dark: { value: "#0e1511" } },
+              "0": { DEFAULT: { value: "#000000"}, light: { value: "#ffffff" }, dark: { value: "#000000" } },
               // ... Other color scale values
-              "12": { "DEFAULT": { value: "#c2f0c2" }, light: { value: "#203c25" }, dark: { value: "#c2f0c2" } }
+              "13": { DEFAULT: { value: "#ffffff"}, light: { value: "#000000" }, dark: { value: "#ffffff" } },
             }
           }
         }
@@ -226,19 +238,19 @@ const semanticTokenStructure = {
         colors: {
           radix: {
             primary: {
-              "1": {
+              "0": {
                 value: {
-                  base: "{colors.radix.grass.1.dark}",
-                  _light: "{colors.radix.grass.1.light}",
-                  _dark: "{colors.radix.grass.1.dark}"
+                  base: "{colors.radix.grass.0.dark}",
+                  _light: "{colors.radix.grass.0.light}",
+                  _dark: "{colors.radix.grass.0.dark}"
                 }
               },
               // ... Other color scale values
-              "12": {
+              "13": {
                 value: {
-                  base: "{colors.radix.grass.12.dark}",
-                  _light: "{colors.radix.grass.12.light}",
-                  _dark: "{colors.radix.grass.12.dark}"
+                  base: "{colors.radix.grass.13.dark}",
+                  _light: "{colors.radix.grass.13.light}",
+                  _dark: "{colors.radix.grass.13.dark}"
                 }
               }
             }
@@ -293,72 +305,6 @@ export default defineConfig({
 });
 ```
 
-```typescript
-const allColors = {
-  theme: {
-    extend: {
-      tokens: {
-        colors: {
-          radix: {
-            gray: {
-              1: {
-                DEFAULT: {
-                  value: "#111111"
-                },
-                light: {
-                  value: "#fcfcfc"
-                },
-                dark: {
-                  value: "#111111"
-                }
-              },
-              // ... Rest of color scale
-              12: {
-                DEFAULT: {
-                  value: "#eeeeee"
-                },
-                light: {
-                  value: "#202020"
-                },
-                dark: {
-                  value: "#eeeeee"
-                }
-              }
-            },
-            // ... Other Colors
-            orange: {
-              1: {
-                DEFAULT: {
-                  value: "#17120e"
-                },
-                light: {
-                  value: "#fefcfb"
-                },
-                dark: {
-                  value: "#17120e"
-                }
-              },
-              // ... Rest of color scale
-              12: {
-                DEFAULT: {
-                  value: "#ffe0c2"
-                },
-                light: {
-                  value: "#582d1d"
-                },
-                dark: {
-                  value: "#ffe0c2"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
 [> Back to examples](#examples)
 
 ### Generate some colors as core tokens
@@ -378,46 +324,6 @@ export default defineConfig({
 ```
 
 This generates only the color tokens that are included in the colors array.
-
-```typescript
-const someColors = {
-  theme: {
-    extend: {
-      tokens: {
-        colors: {
-          radix: {
-            cyan: {
-              1: {
-                DEFAULT: {
-                  value: "#0b161a"
-                },
-                light: {
-                  value: "#fafdfe"
-                },
-                dark: {
-                  value: "#0b161a"
-                }
-              },
-              // ... Rest of color scale
-              12: {
-                DEFAULT: {
-                  value: "#b6ecf7"
-                },
-                light: {
-                  value: "#0d3c48"
-                },
-                dark: {
-                  value: "#b6ecf7"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
 
 [> Back to examples](#examples)
 
@@ -446,7 +352,7 @@ const defaultLightCoreStructure = {
           radix: {
             // ... Other colors
             grass: {
-              '1': {
+              '0': {
                 DEFAULT: { value: 'lightValue' },
                 light: { value: 'lightValue' },
                 dark: { value: 'darkValue' }
@@ -531,11 +437,11 @@ const defaultSemanticStructure = {
         colors: {
           radix: {
             primary: {
-              1: {
+              0: {
                 value: {
-                  base: '{colors.grass.1.dark}',
-                  _light: '{colors.grass.1.light}',
-                  _dark: '{colors.grass.1.dark}',
+                  base: '{colors.grass.0.dark}',
+                  _light: '{colors.grass.0.light}',
+                  _dark: '{colors.grass.0.dark}',
                 },
               },
               // ... Rest of color scale
@@ -583,11 +489,11 @@ const customLightSemanticStructure = {
         colors: {
           radix: {
             primary: {
-              1: {
+              0: {
                 value: {
-                  base: '{colors.grass.1.dark}',
-                  _light: '{colors.grass.1.light}',
-                  _osLight: '{colors.grass.1.light}',
+                  base: '{colors.grass.0.dark}',
+                  _light: '{colors.grass.0.light}',
+                  _osLight: '{colors.grass.0.light}',
                 },
               },
               // ... Rest of color scale
@@ -635,11 +541,11 @@ const customDarkSemanticStructure = {
         colors: {
           radix: {
             primary: {
-              1: {
+              0: {
                 value: {
-                  base: '{colors.grass.1.dark}',
-                  _dark: '{colors.grass.1.dark}',
-                  _osDark: '{colors.grass.1.dark}',
+                  base: '{colors.grass.0.dark}',
+                  _dark: '{colors.grass.0.dark}',
+                  _osDark: '{colors.grass.0.dark}',
                 },
               },
               // ... Rest of color scale
