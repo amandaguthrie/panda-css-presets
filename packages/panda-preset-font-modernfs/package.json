@@ -16,9 +16,7 @@
 		"panda-css",
 		"panda-preset",
 		"pandacss-preset",
-		"panda-css-preset",
-		"radix",
-		"radix-colors"
+		"panda-css-preset"
 	],
 	"license": "MIT",
 	"main": "dist/index.js",
