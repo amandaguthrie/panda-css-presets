@@ -16,7 +16,7 @@
 		"panda-css",
 		"panda-preset",
 		"pandacss-preset",
-		"panda-css-preset",
+		"panda-css-preset"
 	],
 	"license": "MIT",
 	"main": "dist/index.js",
