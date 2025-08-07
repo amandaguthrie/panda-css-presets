@@ -30,7 +30,9 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"side-effects": false,
 	"scripts": {
 		"build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",

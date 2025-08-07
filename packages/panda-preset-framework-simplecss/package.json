@@ -29,7 +29,9 @@
 		},
 		"./package.json": "./package.json"
 	},
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"side-effects": false,
 	"scripts": {
 		"build": "tsup --entry src/index.ts --entry src/index.ts --format=esm,cjs --dts",
@@ -44,7 +46,7 @@
 		"@amandaguthrie/panda-preset-shared-utils": "workspace:*"
 	},
 	"devDependencies": {
-		"@pandacss/dev": "<1.0.0"
+		"@pandacss/dev": "^1.0.0"
 	},
 	"peerDependencies": {
 		"@pandacss/dev": ">=0.20.1",
