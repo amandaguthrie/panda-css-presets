@@ -1,11 +1,20 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.1.4/schema.json",
 	"files": {
-		"ignore": ["build", "dist", "node_modules", "**/*.md", "pnpm-lock.yaml", "styled-system", "snapshots", "panda-preset-static-toolkit", "panda-preset-framework-material-v3"]
+		"includes": [
+			"**",
+			"!**/build",
+			"!**/dist",
+			"!**/node_modules",
+			"!**/*.md",
+			"!**/pnpm-lock.yaml",
+			"!**/styled-system",
+			"!**/snapshots",
+			"!**/panda-preset-static-toolkit",
+			"!**/panda-preset-framework-material-v3"
+		]
 	},
-	"organizeImports": {
-		"enabled": true
-	},
+	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"formatter": {
 		"lineWidth": 120
 	},
@@ -32,10 +41,10 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-
 			"correctness": {
 				"noUnusedVariables": {
-					"level": "error"
+					"level": "error",
+					"options": {}
 				}
 			},
 			"suspicious": {

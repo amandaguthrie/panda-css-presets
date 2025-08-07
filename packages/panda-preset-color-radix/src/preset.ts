@@ -1,12 +1,12 @@
 import { entries, fromEntries, parsePrefix } from '@amandaguthrie/panda-preset-shared-utils';
-import { type Preset, definePreset } from '@pandacss/dev';
+import { definePreset, type Preset } from '@pandacss/dev';
 import type { Condition, RecursiveToken } from '@pandacss/types';
 import {
 	type ColorKeyRadix,
 	type ColorMode,
 	type ColorModeMapPartialKeys,
-	type ScaleOneTwelve,
 	radixAllColorsArray,
+	type ScaleOneTwelve,
 } from '@puffin-ui/types';
 import { transformColorScale } from '@puffin-ui/utilities-color';
 import type {
@@ -46,7 +46,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
 			? colors.filter((color) => radixAllColorsArray.includes(color))
 			: '*'
 		: '*';
-	let semanticTokens: RecursiveToken<string, any> | undefined = undefined;
+	let semanticTokens: RecursiveToken<string, any> | undefined;
 	if (Object.keys(semanticColorMap).length > 0) {
 		// If this semantic color wasn't included in the colors array, add it.
 		for (const mapDetail of Object.values(semanticColorMap)) {

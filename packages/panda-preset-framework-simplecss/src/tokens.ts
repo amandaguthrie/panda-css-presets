@@ -1,5 +1,4 @@
-import { defineTokens } from '@pandacss/dev';
-import { defineSemanticTokens } from '@pandacss/dev';
+import { defineSemanticTokens, defineTokens } from '@pandacss/dev';
 import type { SimpleCssColorConfig, SimpleCssFontConfig } from './types';
 
 export const coreColorTokens = (prefix: string, colorConfig: SimpleCssColorConfig) => {

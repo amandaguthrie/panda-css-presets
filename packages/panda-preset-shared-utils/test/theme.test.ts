@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@amandaguthrie/panda-preset-dev-utils';
 import {
+	maybeExtendTheme,
 	type WrapInExtendThemeArgs,
 	type WrapInThemeArgs,
-	maybeExtendTheme,
 	wrapInExtendTheme,
 	wrapInTheme,
 } from '../src';
