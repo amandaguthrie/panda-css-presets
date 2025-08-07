@@ -1,5 +1,16 @@
 # @amandaguthrie/panda-preset-breakpoints
 
+## 0.2.1
+
+### Patch Changes
+
+- [#25](https://github.com/amandaguthrie/panda-css-presets/pull/25) [`a8fccf9`](https://github.com/amandaguthrie/panda-css-presets/commit/a8fccf98661bffdf9372ab4d8cee9a6ccf9aca4e) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - <br/>
+
+  - Update `@pandacss/dev` and `@pandacss/types` dev dependencies to ^1.0.0
+
+- Updated dependencies [[`a8fccf9`](https://github.com/amandaguthrie/panda-css-presets/commit/a8fccf98661bffdf9372ab4d8cee9a6ccf9aca4e), [`a8fccf9`](https://github.com/amandaguthrie/panda-css-presets/commit/a8fccf98661bffdf9372ab4d8cee9a6ccf9aca4e)]:
+  - @amandaguthrie/panda-preset-shared-utils@0.4.1
+
 ## 0.2.0
 
 ### Minor Changes
