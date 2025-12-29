@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { readJsonSnapshot, toJson, writeJsonSnapshot } from '@amandaguthrie/panda-preset-dev-utils';
-import { type FontModernFSPresetOptions, pandaPresetFontModernFS } from '../src';
+import pandaPresetFontModernFS, { type FontModernFSPresetOptions } from '../src';
 import { GENERATE_SNAPSHOTS } from './test-constants';
 
 describe('Core Token Configuration & Generation', async () => {
