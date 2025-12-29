@@ -80,7 +80,7 @@ export function pandaPresetColorRadix(options?: ColorRadixPresetOptions) {
 	};
 
 	if (semanticTokens !== undefined) {
-		// @ts-ignore This is undefined but we can set it.
+		// @ts-expect-error This is undefined but we can set it.
 		preset.theme.extend.semanticTokens = { colors: semanticTokens };
 	}
 
