@@ -1,5 +1,13 @@
 # @amandaguthrie/panda-plugin-add-export
 
+## 0.1.2
+
+### Patch Changes
+
+- [#25](https://github.com/amandaguthrie/panda-css-presets/pull/25) [`a8fccf9`](https://github.com/amandaguthrie/panda-css-presets/commit/a8fccf98661bffdf9372ab4d8cee9a6ccf9aca4e) Thanks [@amandaguthrie](https://github.com/amandaguthrie)! - <br/>
+
+  - Update `@pandacss/dev` and `@pandacss/types` dev dependencies to ^1.0.0
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
 	"name": "@amandaguthrie/panda-plugin-type-extend",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A Panda CSS Plugin that allows you to extend generated types",
 	"author": {
 		"name": "Amanda Guthrie",
