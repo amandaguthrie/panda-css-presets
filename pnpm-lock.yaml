@@ -7,7 +7,7 @@ settings:
 overrides:
   '@pandacss/dev': ^1.0.1
   '@pandacss/types': ^1.0.1
-  typescript: ^5.9.2
+  typescript: ^5.9.3
 
 importers:
 
@@ -38,7 +38,7 @@ importers:
         specifier: ^4.21.0
         version: 4.21.0
       typescript:
-        specifier: ^5.9.2
+        specifier: ^5.9.3
         version: 5.9.3
 
   packages/panda-plugin-add-export:
@@ -1699,7 +1699,7 @@ packages:
     engines: {node: '>=14.19.0'}
     peerDependencies:
       jsdom: '>=14.x || >=15.x || >=16.x || >=17.x || >=18.x || >=19.x || >=20.x || >=21.x || >=22.x'
-      typescript: ^5.9.2
+      typescript: ^5.9.3
     peerDependenciesMeta:
       jsdom:
         optional: true
@@ -1718,7 +1718,7 @@ packages:
     engines: {node: ^18 || >=20}
     hasBin: true
     peerDependencies:
-      typescript: ^5.9.2
+      typescript: ^5.9.3
     peerDependenciesMeta:
       typescript:
         optional: true
@@ -1731,7 +1731,7 @@ packages:
       '@microsoft/api-extractor': ^7.36.0
       '@swc/core': ^1
       postcss: ^8.4.12
-      typescript: ^5.9.2
+      typescript: ^5.9.3
     peerDependenciesMeta:
       '@microsoft/api-extractor':
         optional: true
