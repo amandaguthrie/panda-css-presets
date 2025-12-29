@@ -7,7 +7,6 @@ export type {
 	ColorModeMapPartialKeys,
 	ScaleOneTwelve,
 } from '@puffin-ui/types';
-export * from './preset';
 export type * from './types';
 
 export default pandaPresetColorRadix;
