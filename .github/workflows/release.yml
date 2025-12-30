@@ -7,11 +7,11 @@ on:
       - 'packages/**'
       - '.npmrc'
       - 'biome.json'
-      - 'bunfig.toml'
       - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
       - 'tsconfig.build.json'
       - 'tsconfig.json'
-      - 'tsup.config.ts'
     branches:
       - main
 
@@ -19,19 +19,22 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    if: github.repository == 'amandaguthrie/panda-css-presets'
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create release (changesets/action)
+      id-token: write # OpenID Connect token needed for provenance
+      pull-requests: write # to create pull request (changesets/action)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # This makes actions fetch all git history so changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Install
+      - name: Install & Build
         uses: ./.github/composite-actions/install
-
-      - name: Build packages
-        run: pnpm build
 
       - name: Publish packages
         id: changesets
@@ -39,7 +42,8 @@ jobs:
         with:
           publish: pnpm release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          # Use OIDC for npm authentication instead of NPM_TOKEN
+          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
           GITHUB_TOKEN: ${{secrets.GH_PAT}}
 
       - name: Release to dev tag
@@ -49,5 +53,6 @@ jobs:
           pnpm release:dev:version
           pnpm release:dev:publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          # Use OIDC for npm authentication instead of NPM_TOKEN
+          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
           GITHUB_TOKEN: ${{secrets.GH_PAT}}
