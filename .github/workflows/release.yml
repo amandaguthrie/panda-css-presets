@@ -33,11 +33,8 @@ jobs:
           # This makes actions fetch all git history so changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Install
+      - name: Install & Build
         uses: ./.github/composite-actions/install
-
-      - name: Build packages
-        run: pnpm build
 
       - name: Publish packages
         id: changesets
